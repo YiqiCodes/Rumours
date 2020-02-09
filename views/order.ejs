@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Google Map</title>
+    <style>
+      #map {
+        height: 800px;
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>To Lighthouse Eats</h1>
+    <h3 id="msg"></h3>
+    <div id="map"></div>
+
+    <script>
+      function initMap() {
+        const directionsService = new google.maps.DirectionsService();
+        const directionsRenderer = new google.maps.DirectionsRenderer();
+
+        const mapOptions = {
+          zoom: 16,
+          center: { lat: 43.644395, lng: -79.402211 }
+        };
+
+        const map = new google.maps.Map(
+          document.getElementById("map"),
+          mapOptions
+        );
+
+        directionsRenderer.setMap(map); // renders map based on coords
+
+        const selectedMode = document.getElementById("mode").value;
+
+        const route = {
+          origin: { lat: 43.644395, lng: -79.402211 }, // LHL
+          destination: { lat: 43.647851, lng: -79.390423 }, // HOME
+          travelMode: google.maps.TravelMode[selectedMode]
+        };
+
+        // render routes
+        directionsService.route(route, function(response, status) {
+          // anonymous function to capture directions
+          if (status !== "OK") {
+            window.alert("Directions request failed due to " + status);
+            return;
+          } else {
+            directionsRenderer.setDirections(response); // Add route to the map
+
+            const directionsData = response.routes[0].legs[0]; // Get data about the mapped route
+
+            if (!directionsData) {
+              window.alert("Directions request failed");
+              return;
+            } else {
+              if (document.getElementById("msg") != null) {
+                document.getElementById(
+                  "msg"
+                ).innerHTML = ` ${selectedMode.toLowerCase()} distance is
+                  ${directionsData.distance.text} /
+                  ${directionsData.duration.text}`;
+              }
+            }
+          }
+        });
+      }
+    </script>
+
+    <div>
+      <strong>Mode of Travel: </strong>
+      <select id="mode" onchange="initMap();">
+        <option value="DRIVING">Driving</option>
+        <option value="WALKING">Walking</option>
+        <option value="BICYCLING">Bicycling</option>
+        <option value="TRANSIT">Transit</option>
+      </select>
+    </div>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcLOiaEp4qBb1Wt2V_dyR6Ze1sgIEfUhs&callback=initMap"
+    ></script>
+  </body>
+</html>

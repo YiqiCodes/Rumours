@@ -1,0 +1,142 @@
+.dish-item {
+  height: 32vh;
+  width: 14vw;
+  /* background-color: rgb(218, 190, 190); */
+  margin: 25px;
+
+}
+
+.dish-items {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 36px;
+  grid-row-gap: 13px;
+  justify-content: space-between;
+}
+
+.order-summary {
+  height: 30vh;
+  width: 25vh;
+  background-color: rgba(8, 8, 8, 0.486);
+  margin: 5% 0px;
+  position: fixed;
+  float: right;
+  top: 45%;
+  right: 3%;
+  color: orangered;
+  font-weight: 700;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid orangered;
+  border-radius: 10px;
+
+}
+
+.order-summary-title {
+  border-bottom: 1px solid rgb(235, 160, 133);
+  border-radius: 15px;
+  padding-bottom: 5px;
+}
+
+.order-detail {
+  display: flex;
+  justify-content: space-between;
+}
+
+main {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.dish-item-picture {
+  height: 8rem;
+  width: 8rem;
+}
+
+.dish-item {
+  position: relative;
+  border: 1px solid orangered;
+  border-radius: 5px;
+  padding: 4%;
+}
+
+.dish-title {
+  position: absolute;
+  top: 5%;
+  left: 25%;
+  font-weight: 700;
+  color: orangered;
+  font-size: 1.8rem;
+}
+
+.dish-item-picture {
+  position: absolute;
+  top: 22%;
+  left: 18%;
+}
+
+.dish-purchase {
+  position: absolute;
+  top: 78%;
+  left: 10%;
+  font-weight: 700;
+  color: orangered;
+  font-size: 1.5rem;
+}
+
+.dish-price {
+  color: orangered;
+  position: absolute;
+  top: 68%;
+  left: 35%;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 1.3rem;
+}
+
+.dish-qty {
+  width: 35%;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.623);
+  font-weight: 700;
+  color: orangered;
+  border: 1px solid orangered;
+  margin: 5%;
+  border-radius: 10px;
+}
+
+.dish-add,
+.dish-minus {
+  background-color: rgba(0, 0, 0, 0.075);
+  color: orangered;
+  border: 1px solid orangered;
+  border-radius: 5px 20px 5px;
+  width: 35px;
+  font-weight: 400;
+}
+
+.dish-add:hover,
+.dish-minus:hover {
+  background-color: orangered;
+  color: black;
+}
+
+::placeholder {
+  color: orangered;
+}
+
+.ordered-item,
+.ordered-qty,
+.ordered-price {
+  color: white;
+}
+
+.sub-total {
+  margin-top: 20%;
+  color: rgb(228, 162, 139);
+}
+
+.total {
+  animation: 2s linear infinite total;
+}
