@@ -11,7 +11,7 @@ const bcrypt = require('bcrypt');
 
 module.exports = function(db) {
 
-  // Create a new customer
+  // Create a new customer in db
   router.post('/', (req, res) => {
     const customer = req.body;
     customer.password = bcrypt.hashSync(customer.password, 12);
@@ -62,7 +62,7 @@ module.exports = function(db) {
     res.send({});
   });
 
-  router.get("/me", (req, res) => {
+  router.get("/", (req, res) => {
     const customerId = req.session.customerId;
     if (!customerId) {
       res.send({message: "not logged in"});
