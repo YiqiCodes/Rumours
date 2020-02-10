@@ -1,0 +1,11 @@
+-- Users table seeds here (Example)
+INSERT INTO customers (name,email,password,phone) VALUES ('Alice','alice@gmail.com','password','1234567890');
+INSERT INTO customers (name,email,password,phone) VALUES ('Karie','karie@gmail.com','password','1234567890');
+INSERT INTO customers (name,email,password,phone) VALUES ('Megan','megan@gmail.com','password','1234567890');
+INSERT INTO customers (name,email,password,phone) VALUES ('Tom','tom@gmail.com','password','1234567890');
+INSERT INTO customers (name,email,password,phone) VALUES ('Patrick','patrick@gmail.com','password','1234567890');
+INSERT INTO customers (name,email,password,phone) VALUES ('Lewis','lewis@gmail.com','password','1234567890');
+INSERT INTO customers (name,email,password,phone) VALUES ('Roy','roy@gmail.com','password','1234567890');
+INSERT INTO customers (name,email,password,phone) VALUES ('Sandra','sandra@gmail.com','password','1234567890');
+INSERT INTO customers (name,email,password,phone) VALUES ('Susan','susan@gmail.com','password','1234567890');
+INSERT INTO customers (name,email,password,phone) VALUES ('Jeff','jeff@gmail.com','password','1234567890');
