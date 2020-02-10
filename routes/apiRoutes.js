@@ -5,67 +5,64 @@
 //  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
 //  */
 
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const router = express.Router();
 
 module.exports = function(db) {
   //to display menu in homepage
-    router.get('/', (req, res) => {
-      db.getMenu(req.query,20)
-      .then(dishes => res.send({dishes}))
+  router.get("/", (req, res) => {
+    db.getMenu(req.query)
+      .then(dishes => res.json({ dishes }))
       .catch(e => {
         console.error(e);
-        res.send(e)
+        res.send(e);
       });
-    });
+  });
 
   //to send order summary to restaurant
-    router.get('/order', (req, res) => {
-      const customerId = req.session.customerId;
-      db.getOrderSummary({...req.body,customerId})
-        .then(order => {
-          res.send(order);
-        })
-        .catch(e => {
-          console.error(e);
-          res.send(e)
-        });
-    });
-
-    // to send order total to restaurant
-    router.get('/order',(req,res) => {
-      const customerId = req.session.customerID;
-      db.getOrderTotal({...req.body,customerId})
-      .then(total => {
-        res.send(total);
+  router.get("/order", (req, res) => {
+    // const customerId = req.session.customerId;
+    db.getOrderSummary(req.query)
+      .then(order => {
+        db.getOrderTotal(req.query)
+          .then(total => res.json({ total, order }))
+          .catch(e => {
+            console.log.error(e);
+            res.send(e);
+          });
       })
       .catch(e => {
-        console.log.error(e);
+        console.error(e);
         res.send(e);
-      })
-    });
+      });
+  });
+
+  // // to send order total to restaurant
+  // router.get("/order", (req, res) => {
+  //   // const customerId = req.session.customerID;
+  //   db.getOrderTotal(req.query)
+  //     .then(total => res.json({ total }))
+  //     .catch(e => {
+  //       console.log.error(e);
+  //       res.send(e);
+  //     });
+  // });
 
   //to generate order in db
-  router.post('/order', (req, res) => {
+  router.post("/order", (req, res) => {
     const customerId = req.session.customerId;
-    db.generateOrder({...req.body,customerId})
+    db.generateOrder({ ...req.body, customerId })
       .then(order => {
         res.send(order);
       })
       .catch(e => {
         console.error(e);
-        res.send(e)
+        res.send(e);
       });
   });
 
-
-    return router;
-  };
-
-
-
-
-
+  return router;
+};
 
 // module.exports = (db) => {
 //   router.get("/", (req, res) => {

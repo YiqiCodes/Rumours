@@ -12,16 +12,16 @@ const pool = new Pool({
 
 /**
  * Get all dishes to dashboard.
- * @param {string} menu .
+ * @param {string}  .
  * @return {Promise<[{}]>} A promise to the required function.
  */
-const getMenu = function(menu) {
+const getMenu = function() {
   return pool
     .query(
       `
       SELECT * FROM dishes
   `,
-      [menu]
+      []
     )
     .then(res => res.rows);
   // return getmenu
@@ -139,7 +139,7 @@ const getOrderSummary = function(order_id) {
       GROUP BY order_id,dishes.name,quantity,price;
 
   `,
-      [order_id]
+      [3]
     )
     .then(res => res.rows);
   // return getOrderSummary
@@ -157,15 +157,15 @@ const getOrderTotal = function(order_id) {
   return pool
     .query(
       `
-      select SUM(total) FROM (
+      SELECT SUM(total) FROM (
         SELECT order_id,dishes.name AS item,quantity,price,price*quantity as total
         FROM ordered_items
         JOIN dishes ON dishes.id = dish_id
-        WHERE order_id = 3
+        WHERE order_id =$1
         GROUP BY order_id,dishes.name,quantity,price
-        ) as tot;
+        ) AS tot;
   `,
-      [order_id]
+      [3]
     )
     .then(res => res.rows);
   // return getOrderSummary

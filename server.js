@@ -15,12 +15,7 @@ const apiRoutes = require("./routes/apiRoutes");
 
 // Require API's
 const twilioText = require("./apis/twilio");
-
-// PG database client/connection setup
-const { Pool } = require("pg");
-const dbParams = require("./lib/db.js");
-const db = new Pool(dbParams);
-db.connect();
+const db = require("./database");
 
 // cookie-session for customer
 app.use(cookieSession({
@@ -51,9 +46,9 @@ app.use(express.static("public"));
 // Separated Routes for each Resource
 // Mount all resource routes
 // /user/endpoints
-app.use("routes/userRoutes", usersRoutes(db));
+app.use("/user", usersRoutes(db));
 // /api/endpoints
-app.use("routes/apiRoutes", apiRoutes(db));
+app.use("/api", apiRoutes(db));
 
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
