@@ -1,5 +1,5 @@
 body {
-  background-image: url(./food-background-green.jpg);
+  background-image: url(/assets/food-background-green.jpg);
   background-color: rgba(0, 0, 0, 0.67);
   background-blend-mode: overlay;
   font-family: 'Raleway',
@@ -7,7 +7,7 @@ body {
 }
 
 header {
-  background-image: url(./food-background.jpg);
+  background-image: url(/assets/food-background.jpg);
   background-color: rgba(0, 0, 0, 0.3);
   background-blend-mode: overlay;
   height: 80vh;

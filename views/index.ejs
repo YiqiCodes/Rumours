@@ -7,20 +7,15 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
-  <script src="https://kit.fontawesome.com/2c4ef76a61.js" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-  </script>
   <link href="https://fonts.googleapis.com/css?family=Merienda+One|Raleway:400,700,900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles/nav-bar.css" type="text/css" />
-  <link rel="stylesheet" href="../styles/header.css/" type="text/css" />
-  <link rel="stylesheet" href="../styles/main.css" type="text/css">
+  <link href="/public/vendor/normalize-4.1.1.css">
+  <link type="text/css" href="/styles/nav-bar.css" rel="stylesheet" />
+  <link type="text/css" href="/styles/header.css" rel="stylesheet" />
+  <link type="text/css" href="/styles/main.css" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/2c4ef76a61.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+
   <title>LH Eats</title>
 </head>
 
@@ -40,7 +35,7 @@
   </nav>
   <header>
     <h1 class="welcome-message">
-      Your food. Our passion. We carry your hunger!
+      “Ate, eating, going to eat” that’s what you must care about.
     </h1>
   </header>
 
@@ -48,45 +43,45 @@
     <div class="dish-items">
       <div class="dish-item1 dish-item">
         <p class="dish-title">Pizza</p>
-        <img class="dish-item-picture" src="../public/assets/pizza.png" alt="cheese pizza picture" />
+        <img class="dish-item-picture" src="/assets/pizza.png" alt="cheese pizza picture" />
         <p class="dish-price">$11.99</p>
         <form class="dish-purchase" action="" method="post">
-          <input class="dish-minus" type="button" value="-">
-          <input class="dish-qty" type="text" name="" id="" placeholder="0">
-          <input class="dish-add" type="button" value="+">
+          <input class="dish-minus" id="dish-item1-minus" type="button" value="-">
+          <input class="dish-qty" id="dish-item1-qty" type="text" name="" value="0">
+          <input class="dish-add" id="dish-item1-add" type="button" value="+">
         </form>
 
       </div>
       <div class="dish-item2 dish-item">
         <p class="dish-title">Burger</p>
-        <img class="dish-item-picture" src="../public/assets/burger.png" alt="chicken burger picture" />
+        <img class="dish-item-picture" src="/assets/burger.png" alt="chicken burger picture" />
         <p class="dish-price">$9.99</p>
         <form class="dish-purchase" action="" method="post">
           <input class="dish-minus" type="button" value="-">
-          <input class="dish-qty" type="text" name="" id="" placeholder="0">
+          <input class="dish-qty" type="text" name="" placeholder="0">
           <input class="dish-add" type="button" value="+">
         </form>
 
       </div>
       <div class="dish-item3 dish-item">
         <p class="dish-title">Fries</p>
-        <img class="dish-item-picture" src="../public/assets/fries.png" alt="fries" />
+        <img class="dish-item-picture" src="/assets/fries.png" alt="fries" />
 
         <p class="dish-price">$2.99</p>
         <form class="dish-purchase" action="" method="post">
           <input class="dish-minus" type="button" value="-">
-          <input class="dish-qty" type="text" name="" id="" placeholder="0">
+          <input class="dish-qty" type="text" name="" placeholder="0">
           <input class="dish-add" type="button" value="+">
         </form>
 
       </div>
       <div class="dish-item4 dish-item">
         <p class="dish-title">Burrito</p>
-        <img class="dish-item-picture" src="../public/assets/burrito.png" alt="chicken burrito" />
+        <img class="dish-item-picture" src="/assets/burrito.png" alt="chicken burrito" />
         <p class="dish-price">$8.99</p>
         <form class="dish-purchase" action="" method="post">
           <input class="dish-minus" type="button" value="-">
-          <input class="dish-qty" type="text" name="" id="" placeholder="0">
+          <input class="dish-qty" type="text" name="" placeholder="0">
           <input class="dish-add" type="button" value="+">
         </form>
       </div>
@@ -99,13 +94,13 @@
         <p class="order-price">Price</p>
       </div>
       <div class="order-detail">
-        <p class="ordered-item">Pizza</p>
-        <p class="ordered-qty">1</p>
-        <p class="ordered-price">$11.99</p>
+        <p id="ordered-item1">Pizza</p>
+        <p id="ordered-qty1">1</p>
+        <p id="ordered-price1">$11.99</p>
       </div>
       <div class="sub-total order-detail">
         <p>Sub-Total</p>
-        <p>$11.99</p>
+        <p id="sub-total1">11.99</p>
       </div>
       <div class="total order-detail">
         <p>Total</p>
@@ -116,5 +111,15 @@
       </form>
     </div>
   </main>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
 
 </html>

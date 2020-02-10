@@ -16,7 +16,7 @@
 }
 
 .order-summary {
-  height: 30vh;
+  height: 35vh;
   width: 25vh;
   background-color: rgba(8, 8, 8, 0.486);
   margin: 5% 0px;
@@ -139,4 +139,18 @@ main {
 
 .total {
   animation: 2s linear infinite total;
+}
+
+.submit-order {
+  background-color: rgba(0, 0, 0, 0.514);
+  color: orangered;
+  border-radius: 8px;
+  border: 1px solid orangered;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.submit-order:hover {
+  background-color: rgb(206, 132, 106);
+  color: black;
 }
