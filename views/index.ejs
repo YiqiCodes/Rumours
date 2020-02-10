@@ -42,7 +42,7 @@
   <main>
     <div class="dish-items">
       <div class="dish-item1 dish-item">
-        <p class="dish-title">Pizza</p>
+        <p id="dish-title-pizza" class="dish-title">Pizza</p>
         <img class="dish-item-picture" src="/assets/pizza.png" alt="cheese pizza picture" />
         <p class="dish-price">$11.99</p>
         <form class="dish-purchase" action="" method="post">
@@ -93,18 +93,18 @@
         <p class="order-qty">Qty</p>
         <p class="order-price">Price</p>
       </div>
-      <div class="order-detail">
-        <p id="ordered-item1">Pizza</p>
-        <p id="ordered-qty1">1</p>
-        <p id="ordered-price1">$11.99</p>
+      <div class="order-detail ordered-detail">
+        <p id="ordered-item1"></p>
+        <p id="ordered-qty1"></p>
+        <p id="ordered-price1"></p>
       </div>
       <div class="sub-total order-detail">
         <p>Sub-Total</p>
-        <p id="sub-total1">11.99</p>
+        <p id="sub-total-price"></p>
       </div>
       <div class="total order-detail">
         <p>Total</p>
-        <p>$13.55</p>
+        <p id="total-price"></p>
       </div>
       <form action="/" method="POST">
         <input class="submit-order" type="submit" value="Order">
