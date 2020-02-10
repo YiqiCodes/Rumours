@@ -14,22 +14,33 @@ $(() => {
 $(document).ready(function() {
   $("#dish-item1-add").click(function(e) {
     e.preventDefault();
+    let dishTitle = $("#dish-title-pizza").html();
+    $("#ordered-item1").html(dishTitle);
     let oldQty = parseInt($("#dish-item1-qty").val());
     let newQty = oldQty + 1;
-    $("#dish-item1-qty").val(newQty);
-    $("#ordered-qty1").text(newQty);
-    $("#ordered-price1").text(newQty * 11.99);
-    $("#sub-total1").text($("#ordered-price1").val());
+    addMinus(newQty);
   });
 
   $("#dish-item1-minus").click(function(e) {
     e.preventDefault();
+    let dishTitle = $("#dish-title-pizza").html();
+    $("#ordered-item1").html(dishTitle);
     let oldQty = parseInt($("#dish-item1-qty").val());
     if (oldQty > 0) {
       let newQty = oldQty - 1;
-      $("#dish-item1-qty").val(newQty);
-      $("#ordered-qty1").text(newQty);
-      $("#ordered-price1").text(newQty * 11.99);
+      addMinus(newQty);
     }
   });
 });
+
+const addMinus = newQty => {
+  $("#dish-item1-qty").val(newQty);
+  $("#ordered-qty1").html(newQty);
+  let orderPrice = Number(newQty * 11.99).toFixed(2);
+  $("#ordered-price1").text(orderPrice);
+  let orderSubTotal = $("#ordered-price1").html();
+  $("#sub-total-price").html(orderSubTotal);
+  let orderTotal = Number($("#sub-total-price").html());
+  let orderTotalTax = (orderTotal * 1.13).toFixed(2);
+  $("#total-price").html(orderTotalTax);
+};

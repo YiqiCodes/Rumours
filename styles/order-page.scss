@@ -1,0 +1,101 @@
+#map {
+  height: 50vh;
+  width: 50vw;
+  border: 1px solid;
+  border-radius: 15px;
+}
+
+body {
+  background-image: url(/assets/food-background-green.jpg);
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.733);
+  background-blend-mode: overlay;
+}
+
+.google-maps {
+  margin-left: 5%;
+}
+
+#msg {
+  color: rgb(235, 149, 117);
+  ;
+}
+
+h1 {
+  font-family: 'Raleway',
+    sans-serif;
+  font-size: 3rem;
+  color: orangered;
+  text-align: center;
+}
+
+h3 {
+  font-family: 'Raleway',
+    sans-serif;
+  font-size: 1.4rem;
+  color: white;
+}
+
+#mode {
+  font-family: 'Raleway',
+    sans-serif;
+  font-size: 1.2rem;
+  color: rgb(216, 185, 174);
+  background-color: rgba(0, 0, 0, 0.486);
+  padding: 5px;
+  border: 1px solid rgb(223, 190, 178);
+  border-radius: 5px;
+}
+
+
+.travel-mode {
+  display: inline-block;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ordered-item,
+.ordered-qty,
+.ordered-price {
+  color: white;
+}
+
+.sub-total {
+  margin-top: 20%;
+  color: rgb(228, 162, 139);
+}
+
+.total {
+  animation: 2s linear infinite total;
+}
+
+.order-summary {
+  height: 75vh;
+  width: 30%;
+  background-color: rgba(8, 8, 8, 0.486);
+  margin-right: 5%;
+  color: orangered;
+  font-weight: 700;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid orangered;
+  border-radius: 10px;
+}
+
+.order-summary-title {
+  border-bottom: 1px solid rgb(235, 160, 133);
+  border-radius: 15px;
+  padding-bottom: 5px;
+}
+
+.order-detail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ordered-detail {
+  color: white;
+}

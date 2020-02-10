@@ -43,6 +43,7 @@ module.exports = function(db) {
   }
   exports.login = login;
 
+//when customer clicks login send a post req to server with cx info
   router.post('/login', (req, res) => {
     const {email, password} = req.body;
     login(email, password)
@@ -57,12 +58,14 @@ module.exports = function(db) {
       .catch(e => res.send(e));
   });
 
+//when customer clicks logout send a post req to server to end session
   router.post('/logout', (req, res) => {
     req.session.customerId = null;
     res.send({});
   });
 
-  router.get("/", (req, res) => {
+// to get customer's details
+  router.get("/me", (req, res) => {
     const customerId = req.session.customerId;
     if (!customerId) {
       res.send({message: "not logged in"});
