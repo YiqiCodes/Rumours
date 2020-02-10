@@ -1,86 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>My Google Map</title>
-    <style>
-      #map {
-        height: 800px;
-        width: 100%;
-      }
-    </style>
-  </head>
 
-  <body>
-    <h1>To Lighthouse Eats</h1>
-    <h3 id="msg"></h3>
-    <div id="map"></div>
+<head>
+  <title>Your order summary</title>
+  <link type="text/css" rel="stylesheet" href="/styles/order-page.css">
+  <link href="https://fonts.googleapis.com/css?family=Merienda+One|Raleway:400,700,900&display=swap" rel="stylesheet" />
 
-    <script>
-      function initMap() {
-        const directionsService = new google.maps.DirectionsService();
-        const directionsRenderer = new google.maps.DirectionsRenderer();
+</head>
 
-        const mapOptions = {
-          zoom: 16,
-          center: { lat: 43.644395, lng: -79.402211 }
-        };
+<body>
+  <h1>Thank you for ordering with us!! </h1>
 
-        const map = new google.maps.Map(
-          document.getElementById("map"),
-          mapOptions
-        );
+  <main>
+    <div class="google-maps">
+      <div>
+        <h3 class="travel-mode">Mode of Travel: </h3>
+        <select id="mode" onchange="initMap();">
+          <option value="DRIVING">Driving</option>
+          <option value="WALKING">Walking</option>
+          <option value="BICYCLING">Bicycling</option>
+          <option value="TRANSIT">Transit</option>
+        </select>
+      </div>
+      <h3 id="msg"></h3>
+      <div id="map">
+      </div>
+    </div>
 
-        directionsRenderer.setMap(map); // renders map based on coords
+    <div class="order-summary">
+      <p class="order-summary-title">Order summary</p>
+      <div class="order-detail">
+        <p class="order-item">Item</p>
+        <p class="order-qty">Qty</p>
+        <p class="order-price">Price</p>
+      </div>
+      <div class="order-detail ordered-detail">
+        <p id="ordered-item1"></p>
+        <p id="ordered-qty1"></p>
+        <p id="ordered-price1"></p>
+      </div>
+      <div class="sub-total order-detail">
+        <p>Sub-Total</p>
+        <p id="sub-total-price"></p>
+      </div>
+      <div class="total order-detail">
+        <p>Total</p>
+        <p id="total-price"></p>
+      </div>
 
-        const selectedMode = document.getElementById("mode").value;
 
-        const route = {
-          origin: { lat: 43.644395, lng: -79.402211 }, // LHL
-          destination: { lat: 43.647851, lng: -79.390423 }, // HOME
-          travelMode: google.maps.TravelMode[selectedMode]
-        };
+  </main>
 
-        // render routes
-        directionsService.route(route, function(response, status) {
-          // anonymous function to capture directions
-          if (status !== "OK") {
-            window.alert("Directions request failed due to " + status);
+  <script>
+    function initMap() {
+      const directionsService = new google.maps.DirectionsService();
+      const directionsRenderer = new google.maps.DirectionsRenderer();
+      const mapOptions = {
+        zoom: 16,
+        center: {
+          lat: 43.644395,
+          lng: -79.402211
+        }
+      };
+      const map = new google.maps.Map(
+        document.getElementById("map"),
+        mapOptions
+      );
+      directionsRenderer.setMap(map); // renders map based on coords
+      const selectedMode = document.getElementById("mode").value;
+      const route = {
+        origin: {
+          lat: 43.644395,
+          lng: -79.402211
+        }, // LHL
+        destination: {
+          lat: 43.647851,
+          lng: -79.390423
+        }, // HOME
+        travelMode: google.maps.TravelMode[selectedMode]
+      };
+      // render routes
+      directionsService.route(route, function (response, status) {
+        // anonymous function to capture directions
+        if (status !== "OK") {
+          window.alert("Directions request failed due to " + status);
+          return;
+        } else {
+          directionsRenderer.setDirections(response); // Add route to the map
+          const directionsData = response.routes[0].legs[0]; // Get data about the mapped route
+          if (!directionsData) {
+            window.alert("Directions request failed");
             return;
           } else {
-            directionsRenderer.setDirections(response); // Add route to the map
-
-            const directionsData = response.routes[0].legs[0]; // Get data about the mapped route
-
-            if (!directionsData) {
-              window.alert("Directions request failed");
-              return;
-            } else {
-              if (document.getElementById("msg") != null) {
-                document.getElementById(
-                  "msg"
-                ).innerHTML = ` ${selectedMode.toLowerCase()} distance is
+            if (document.getElementById("msg") != null) {
+              document.getElementById(
+                "msg"
+              ).innerHTML = ` ${selectedMode} DISTANCE IS
                   ${directionsData.distance.text} /
                   ${directionsData.duration.text}`;
-              }
             }
           }
-        });
-      }
-    </script>
+        }
+      });
+    }
 
-    <div>
-      <strong>Mode of Travel: </strong>
-      <select id="mode" onchange="initMap();">
-        <option value="DRIVING">Driving</option>
-        <option value="WALKING">Walking</option>
-        <option value="BICYCLING">Bicycling</option>
-        <option value="TRANSIT">Transit</option>
-      </select>
-    </div>
-    <script
-      async
-      defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcLOiaEp4qBb1Wt2V_dyR6Ze1sgIEfUhs&callback=initMap"
-    ></script>
-  </body>
+  </script>
+
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcLOiaEp4qBb1Wt2V_dyR6Ze1sgIEfUhs&callback=initMap"></script>
+</body>
+
 </html>
