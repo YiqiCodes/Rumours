@@ -1,7 +1,8 @@
 function twilioText() {
-  const accountSid = "ACac4d347ed2aaf78e93efc8c5d433679e";
-  const authToken = "c869687ac5ca51903c0af8313d3945d7";
+  const accountSid = process.env.accountSid;
+  const authToken = process.env.authToken;
   const client = require("twilio")(accountSid, authToken);
+  console.log("TEST", authToken);
 
   let numbersToMessage = ["+16133714897", "+16475287504"];
   numbersToMessage.forEach(function(number) {
@@ -17,4 +18,4 @@ function twilioText() {
   });
 }
 
-module.exports = twilioText;
+// module.exports = twilioText;
