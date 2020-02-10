@@ -11,16 +11,23 @@ const app = express();
 const morgan = require("morgan");
 const cookieSession = require('cookie-session');
 
+const twilioText = require("./apis/twilio");
+
 // PG database client/connection setup
 const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
 db.connect();
 
+<<<<<<< HEAD
 app.use(cookieSession({
   name: 'session',
   keys: ['key1']
 }));
+=======
+// Require API's
+
+>>>>>>> 703e6cc4491fd33054aa159d65171d1c2a8743c5
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -56,8 +63,18 @@ app.use("routes/apiRoutes", apiRoutes(db));
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
+
 app.get("/", (req, res) => {
   res.render("index");
+});
+
+app.post("/", (req, res) => {
+  // twilioText(); UNCOMMENT IF YOU WANT TO TEST WITH REAL #
+  res.redirect("order");
+});
+
+app.get("/order", (req, res) => {
+  res.render("order");
 });
 
 app.listen(PORT, () => {
