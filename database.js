@@ -53,7 +53,7 @@ exports.registerCustomer = registerCustomer;
  * @return {Promise<{}>} A promise to the customer.
  */
 
-const getUserWithEmail = function(email) {
+const getCustomerWithEmail = function(email) {
   console.log(email);
   return pool
     .query(
@@ -65,14 +65,14 @@ const getUserWithEmail = function(email) {
     )
     .then(res => res.rows[0]);
 };
-exports.getUserWithEmail = getUserWithEmail;
+exports.getCustomerWithEmail = getCustomerWithEmail;
 
 /**
  * Get a single customer from the database given their id.
  * @param {string} id The id of the customer.
  * @return {Promise<{}>} A promise to the id.
  */
-const getUserWithId = function(id) {
+const getCustomerWithId = function(id) {
   return pool
     .query(
       `
@@ -83,7 +83,44 @@ const getUserWithId = function(id) {
     )
     .then(res => res.rows[0]);
 };
-exports.getUserWithId = getUserWithId;
+exports.getCustomerWithId = getCustomerWithId;
+
+/**
+ * Add a new order to the database.
+ * @param {{customer_id: INTEGER}} order
+ * @return {Promise<{}>} A promise to the order.
+ */
+const generateOrder = function(order) {
+  console.log(order);
+  return pool
+    .query(
+      `
+      INSERT INTO orders (customer_id) VALUES ($1) RETURNING *
+  `,
+      [order.customer_id]
+    )
+    .then(res => (res.rows));
+};
+exports.generateOrder = generateOrder;
+
+/**
+ * Add a new item to ordered-items database.
+ * @param {{order_id: INTEGER,dish_id: INTEGER,quantity: price}} item
+ * @return {Promise<{}>} A promise to the order.
+ */
+const generateOrderSummary = function(item) {
+  console.log(item);
+  return pool
+    .query(
+      `
+      INSERT INTO ordered_items (order_id,dish_id,quantity) VALUES ($1,$2,$3) RETURNING *
+  `,
+      [item.order_id,item.dish_id,item.quantity]
+    )
+    .then(res => (res.rows));
+};
+exports.generateOrderSummary = generateOrderSummary;
+
 
 ///to send orderSummary to restaurant
 /**
@@ -107,8 +144,8 @@ const getOrderSummary = function(order_id) {
     .then(res => res.rows);
   // return getOrderSummary
 };
-exports.getOrderSummary = getOrderSummary;
 ///orderSummary send to the restaurant
+exports.getOrderSummary = getOrderSummary;
 
 ///to send total price to restaurant
 /**
@@ -137,25 +174,25 @@ const getOrderTotal = function(order_id) {
 exports.getOrderTotal = getOrderTotal;
 ///orderSummary send to the restaurant
 
-/**
- * Add a dish to the database
- * @param {{}} dish An object containing all of the dish details.
- * @return {Promise<{}>} A promise to the dish.
- */
-const addDish = function(dish) {
-  console.log(dish);
-  return pool
-    .query(
-      `
-      INSERT INTO dishes (name,thumbnail_photo_url,price) VALUES ('Chicken Burger','pic1',8);
-      VALUES ($1,$2,$3) RETURNING *
-      `,
-      [
-        dish.name,
-        dish.thumbnail_photo_url,
-        dish.price
-      ]
-    )
-    .then(res => res.rows);
-};
-exports.addDish = addDish;
+// /**
+//  * Add a dish to the database
+//  * @param {{}} dish An object containing all of the dish details.
+//  * @return {Promise<{}>} A promise to the dish.
+//  */
+// const addDish = function(dish) {
+//   console.log(dish);
+//   return pool
+//     .query(
+//       `
+//       INSERT INTO dishes (name,thumbnail_photo_url,price) VALUES ('Chicken Burger','pic1',8);
+//       VALUES ($1,$2,$3) RETURNING *
+//       `,
+//       [
+//         dish.name,
+//         dish.thumbnail_photo_url,
+//         dish.price
+//       ]
+//     )
+//     .then(res => res.rows);
+// };
+// exports.addDish = addDish;

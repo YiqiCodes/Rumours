@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require("morgan");
+const cookieSession = require('cookie-session');
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -16,6 +17,10 @@ const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
 db.connect();
 
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1']
+}));
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
@@ -35,14 +40,17 @@ app.use(
 app.use(express.static("public"));
 
 // Separated Routes for each Resource
+// Mount all resource routes
+// /user/endpoints
+// Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
-const widgetsRoutes = require("./routes/widgets");
+const usersRoutes = require("./routes/userRoutes");
+const apiRoutes = require("./routes/apiRoutes");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
-app.use("/api/widgets", widgetsRoutes(db));
+app.use("routes/userRoutes", usersRoutes(db));
+app.use("routes/apiRoutes", apiRoutes(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page
