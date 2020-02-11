@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 module.exports = function(db) {
-  //to render index page with dishes from DB
   router.get("/", (req, res) => {
     db.getMenu(req.query)
       .then(dishes => res.render("index", { dishes: dishes }))
@@ -20,9 +19,21 @@ module.exports = function(db) {
       console.error(e);
       res.send(e);
     })
+   }); //to generate order in db
+  router.post("/order", (req, res) => {
+    const customerId = req.session.customerId;
+    db.generateOrder({ ...req.body, customerId })
+      .then(order => {
+        res.send(order);
+      })
+      .catch(e => {
+        console.error(e);
+        res.send(e);
+      });
   });
 
- 
+
+
   return router;
 };
 // //to generate orderSummary in db

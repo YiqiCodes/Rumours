@@ -42,61 +42,18 @@
   <main>
     <div class="dish-items">
       <% dishes.forEach(function(dish){ %>
-        <div class="dish-item1 dish-item">
-          <p id="dish-title-pizza" class="dish-title"><%- dish.name %></p>
-          <img class="dish-item-picture" src="/assets/pizza.png" alt="cheese pizza picture" />
-          <p class="dish-price">$11.99</p>
-          <form class="dish-purchase" action="" method="post">
-            <input class="dish-minus" id="dish-item1-minus" type="button" value="-">
-            <input class="dish-qty" id="dish-item1-qty" type="text" name="" value="0">
-            <input class="dish-add" id="dish-item1-add" type="button" value="+">
-          </form>
-        </div>
-      <% }); %>
       <div class="dish-item1 dish-item">
-        <p id="dish-title-pizza" class="dish-title">Pizza</p>
+        <p id="dish-title-pizza" class="dish-title"><%- dish.name %></p>
         <img class="dish-item-picture" src="/assets/pizza.png" alt="cheese pizza picture" />
-        <p class="dish-price">$11.99</p>
+        <p class="dish-price"><%= dish.price %></p>
         <form class="dish-purchase" action="" method="post">
           <input class="dish-minus" id="dish-item1-minus" type="button" value="-">
           <input class="dish-qty" id="dish-item1-qty" type="text" name="" value="0">
           <input class="dish-add" id="dish-item1-add" type="button" value="+">
         </form>
-
       </div>
-      <div class="dish-item2 dish-item">
-        <p class="dish-title">Burger</p>
-        <img class="dish-item-picture" src="/assets/burger.png" alt="chicken burger picture" />
-        <p class="dish-price">$9.99</p>
-        <form class="dish-purchase" action="" method="post">
-          <input class="dish-minus" type="button" value="-">
-          <input class="dish-qty" type="text" name="" placeholder="0">
-          <input class="dish-add" type="button" value="+">
-        </form>
+      <% }); %>
 
-      </div>
-      <div class="dish-item3 dish-item">
-        <p class="dish-title">Fries</p>
-        <img class="dish-item-picture" src="/assets/fries.png" alt="fries" />
-
-        <p class="dish-price">$2.99</p>
-        <form class="dish-purchase" action="" method="post">
-          <input class="dish-minus" type="button" value="-">
-          <input class="dish-qty" type="text" name="" placeholder="0">
-          <input class="dish-add" type="button" value="+">
-        </form>
-
-      </div>
-      <div class="dish-item4 dish-item">
-        <p class="dish-title">Burrito</p>
-        <img class="dish-item-picture" src="/assets/burrito.png" alt="chicken burrito" />
-        <p class="dish-price">$8.99</p>
-        <form class="dish-purchase" action="" method="post">
-          <input class="dish-minus" type="button" value="-">
-          <input class="dish-qty" type="text" name="" placeholder="0">
-          <input class="dish-add" type="button" value="+">
-        </form>
-      </div>
     </div>
     <div class="order-summary">
       <p class="order-summary-title">Order summary</p>
@@ -113,7 +70,12 @@
       <div class="sub-total order-detail">
         <p>Sub-Total</p>
         <p id="sub-total-price"></p>
+
       </div>
+      <!-- <div class="sub-total order-detail">
+        <p>Tax</p>
+        <p id="tax-price"></p>
+      </div> -->
       <div class="total order-detail">
         <p>Total</p>
         <p id="total-price"></p>
