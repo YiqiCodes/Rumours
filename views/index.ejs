@@ -42,14 +42,14 @@
   <main>
     <div class="dish-items">
       <% dishes.forEach(function(dish){ %>
-      <div class="dish-item1 dish-item">
-        <p id="dish-title-pizza" class="dish-title"><%- dish.name %></p>
+      <div id="<%=  dish.id %>" class="dish-item">
+        <p id="dish-title-<%=  dish.id %>" class="dish-title"><%- dish.name %></p>
         <img class="dish-item-picture" src="/assets/pizza.png" alt="cheese pizza picture" />
-        <p class="dish-price"><%= dish.price %></p>
+        <p class="dish-price" id="dish-price-<%=  dish.id %>"><%= dish.price %></p>
         <form class="dish-purchase" action="" method="post">
-          <input class="dish-minus" id="dish-item1-minus" type="button" value="-">
-          <input class="dish-qty" id="dish-item1-qty" type="text" name="" value="0">
-          <input class="dish-add" id="dish-item1-add" type="button" value="+">
+          <input class="dish-minus" id="dish-item<%=  dish.id %>-minus" type="button" value="-">
+          <input class="dish-qty" id="dish-item<%=  dish.id %>-qty" type="text" name="" value="0">
+          <input class="dish-add" id="dish-item<%=  dish.id %>-add" type="button" value="+">
         </form>
       </div>
       <% }); %>
@@ -62,10 +62,12 @@
         <p class="order-qty">Qty</p>
         <p class="order-price">Price</p>
       </div>
-      <div class="order-detail ordered-detail">
-        <p id="ordered-item1"></p>
-        <p id="ordered-qty1"></p>
-        <p id="ordered-price1"></p>
+      <div class="order-list">
+        <div id="order-1" class="order-detail ordered-detail">
+          <p id="ordered-item-1"></p>
+          <p id="ordered-qty-1"></p>
+          <p id="ordered-price-1"></p>
+        </div>
       </div>
       <div class="sub-total order-detail">
         <p>Sub-Total</p>
