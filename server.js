@@ -65,9 +65,7 @@ app.post("/", (req, res) => {
 app.get("/order", (req, res) => {
   res.render("order");
 });
-app.get("/",(req,res)=>{
-  res.render("/")
-})
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

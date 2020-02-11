@@ -11,7 +11,10 @@ const router = express.Router();
 module.exports = function(db) {
   //to display menu in homepage
   router.get("/", (req, res) => {
+    console.log(res,"res")
+    console.log(res.json,"res.json")
     db.getMenu(req.query)
+
       .then(dishes => res.json({ dishes }))
       .catch(e => {
         console.error(e);
