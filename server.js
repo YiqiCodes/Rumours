@@ -9,21 +9,22 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require("morgan");
-const cookieSession = require('cookie-session');
+const cookieSession = require("cookie-session");
 const usersRoutes = require("./routes/userRoutes");
 const apiRoutes = require("./routes/apiRoutes");
+const homeRoutes = require("./routes/homeRoutes");
 
 // Require API's
 const twilioText = require("./apis/twilio");
 const db = require("./database");
 
 // cookie-session for customer
-app.use(cookieSession({
-  name: 'session',
-  keys: ['key1']
-}));
-
-
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["key1"]
+  })
+);
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.

@@ -15,7 +15,7 @@
   <script src="https://kit.fontawesome.com/2c4ef76a61.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
-
+  <script type="text/javascript" src="/scripts/api.js"></script>
   <title>LH Eats</title>
 </head>
 
@@ -41,6 +41,18 @@
 
   <main>
     <div class="dish-items">
+      <% dishes.forEach(function(dish){ %>
+        <div class="dish-item1 dish-item">
+          <p id="dish-title-pizza" class="dish-title"><%- dish.name %></p>
+          <img class="dish-item-picture" src="/assets/pizza.png" alt="cheese pizza picture" />
+          <p class="dish-price">$11.99</p>
+          <form class="dish-purchase" action="" method="post">
+            <input class="dish-minus" id="dish-item1-minus" type="button" value="-">
+            <input class="dish-qty" id="dish-item1-qty" type="text" name="" value="0">
+            <input class="dish-add" id="dish-item1-add" type="button" value="+">
+          </form>
+        </div>
+      <% }); %>
       <div class="dish-item1 dish-item">
         <p id="dish-title-pizza" class="dish-title">Pizza</p>
         <img class="dish-item-picture" src="/assets/pizza.png" alt="cheese pizza picture" />
@@ -106,7 +118,7 @@
         <p>Total</p>
         <p id="total-price"></p>
       </div>
-      <form action="/" method="POST">
+      <form action="/api/homes" method="POST">
         <input class="submit-order" type="submit" value="Order">
       </form>
     </div>
