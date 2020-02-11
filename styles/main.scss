@@ -7,7 +7,7 @@
 
 .dish-items {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 36px;
   grid-row-gap: 13px;
@@ -16,7 +16,7 @@
 
 .order-summary {
   height: 40vh;
-  width: 25vh;
+  width: 20%;
   background-color: rgba(8, 8, 8, 0.486);
   margin: 5% 0px 2% 0px;
   position: fixed;
@@ -44,11 +44,12 @@
 
 .ordered-detail {
   color: white;
+  width: 40%;
 }
 
 main {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 

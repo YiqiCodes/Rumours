@@ -99,7 +99,7 @@ const generateOrder = function(order) {
   `,
       [order.customer_id]
     )
-    .then(res => (res.rows));
+    .then(res => res.rows);
 };
 exports.generateOrder = generateOrder;
 
@@ -115,12 +115,11 @@ const generateOrderSummary = function(item) {
       `
       INSERT INTO ordered_items (order_id,dish_id,quantity) VALUES ($1,$2,$3) RETURNING *
   `,
-      [item.order_id,item.dish_id,item.quantity]
+      [item.order_id, item.dish_id, item.quantity]
     )
-    .then(res => (res.rows));
+    .then(res => res.rows);
 };
 exports.generateOrderSummary = generateOrderSummary;
-
 
 ///to send orderSummary to restaurant
 /**
@@ -161,7 +160,7 @@ const getOrderTotal = function(order_id) {
         SELECT order_id,dishes.name AS item,quantity,price,price*quantity as total
         FROM ordered_items
         JOIN dishes ON dishes.id = dish_id
-        WHERE order_id =$1
+        WHERE order_id = $1
         GROUP BY order_id,dishes.name,quantity,price
         ) AS tot;
   `,

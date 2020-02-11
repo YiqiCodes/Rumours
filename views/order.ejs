@@ -34,20 +34,25 @@
         <p class="order-qty">Qty</p>
         <p class="order-price">Price</p>
       </div>
+      <% order.forEach(function(order){ %>
       <div class="order-detail ordered-detail">
-        <p id="ordered-item1"></p>
-        <p id="ordered-qty1"></p>
-        <p id="ordered-price1"></p>
+        <p id="ordered-item1"><%= order.item %></p>
+        <p id="ordered-qty1"><%= order.quantity %></p>
+        <p id="ordered-price1">$<%= (order.sum).toFixed(2) %></p>
       </div>
+      <% }); %>
       <div class="sub-total order-detail">
         <p>Sub-Total</p>
-        <p id="sub-total-price"></p>
+        <p id="sub-total-price">$<%= Number((total[0].sum)).toFixed(2) %></p>
+      </div>
+      <div class="sub-total order-detail">
+        <p>Tax</p>
+        <p id="tax-price"><%= (Number(total[0].sum)* 0.13).toFixed(2) %></p>
       </div>
       <div class="total order-detail">
         <p>Total</p>
-        <p id="total-price"></p>
+        <p id="total-price">$<%= (Number(total[0].sum)* 1.13).toFixed(2) %></p>
       </div>
-
 
   </main>
 

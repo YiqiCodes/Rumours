@@ -36,7 +36,8 @@ $(document).ready(function() {
 const addMinus = newQty => {
   $("#dish-item1-qty").val(newQty);
   $("#ordered-qty1").html(newQty);
-  let orderPrice = Number(newQty * 11.99).toFixed(2);
+  let itemPrice = Number($(".dish-price").html());
+  let orderPrice = Number(newQty * itemPrice).toFixed(2);
   $("#ordered-price1").text(orderPrice);
   let orderSubTotal = $("#ordered-price1").html();
   $("#sub-total-price").html(orderSubTotal);
