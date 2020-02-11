@@ -27,13 +27,16 @@
       </div>
     </div>
 
+
     <div class="order-summary">
       <p class="order-summary-title">Order summary</p>
+      <% order.forEach(function(item){ %>
       <div class="order-detail">
-        <p class="order-item">Item</p>
-        <p class="order-qty">Qty</p>
-        <p class="order-price">Price</p>
+        <p class="order-item"><%-order.item%></p>
+        <p class="order-qty"><%-order.quantity%></p>
+        <p class="order-price"><%-order.price%></p>
       </div>
+      <% }); %>
       <div class="order-detail ordered-detail">
         <p id="ordered-item1"></p>
         <p id="ordered-qty1"></p>

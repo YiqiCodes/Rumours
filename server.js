@@ -51,22 +51,7 @@ app.use("/user", usersRoutes(db));
 // /api/endpoints
 app.use("/api", apiRoutes(db));
 
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
-// Home page
-app.get("/", (req, res) => {
-  res.render("index");
-});
-// when order placed
-app.post("/", (req, res) => {
-  // twilioText(); UNCOMMENT IF YOU WANT TO TEST WITH REAL #
-  res.redirect("order");
-});
-// this will show the page after order placed with maps on it
-app.get("/order", (req, res) => {
-  res.render("order");
-});
-
+app.use("/home", homeRoutes(db));
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
