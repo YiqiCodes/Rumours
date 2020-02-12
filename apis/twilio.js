@@ -2,7 +2,6 @@ function twilioText() {
   const accountSid = process.env.accountSid;
   const authToken = process.env.authToken;
   const client = require("twilio")(accountSid, authToken);
-  console.log("TEST", authToken);
 
   let numbersToMessage = ["+16133714897", "+16475287504"];
   numbersToMessage.forEach(function(number) {
