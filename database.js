@@ -156,7 +156,8 @@ exports.getOrderSummary = getOrderSummary;
  * @param {string} order_id The id of the order.
  * @return {Promise<[{}]>} A promise to the order_id
  */
-const getOrderTotal = function(order_id) {
+const getOrderTotal = function(orderId) {
+  let number = Number(Object.values(orderId));
   return pool
     .query(
       `
@@ -168,7 +169,7 @@ const getOrderTotal = function(order_id) {
         GROUP BY order_id,dishes.name,quantity,price
         ) AS tot;
   `,
-      [3]
+      [number]
     )
     .then(res => res.rows);
   // return getOrderSummary
