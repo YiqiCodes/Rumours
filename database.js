@@ -34,7 +34,6 @@ exports.getMenu = getMenu;
  * @return {Promise<{}>} A promise to the customer.
  */
 const registerCustomer = function(customer) {
-  console.log(customer);
   return pool
     .query(
       `
@@ -54,7 +53,6 @@ exports.registerCustomer = registerCustomer;
  */
 
 const getCustomerWithEmail = function(email) {
-  console.log(email);
   return pool
     .query(
       `
@@ -91,15 +89,16 @@ exports.getCustomerWithId = getCustomerWithId;
  * @return {Promise<{}>} A promise to the order.
  */
 const generateOrder = function(order) {
-  console.log(order);
   return pool
     .query(
       `
-      INSERT INTO orders (customer_id) VALUES ($1) RETURNING *
-  `,
-      [order.customer_id]
+      INSERT INTO orders (customer_id) VALUES ($1) RETURNING id
+      `,
+      [order.customerId]
     )
-    .then(res => res.rows);
+    .then(res => {
+      return res.rows[0].id;
+    });
 };
 exports.generateOrder = generateOrder;
 
@@ -108,16 +107,20 @@ exports.generateOrder = generateOrder;
  * @param {{order_id: INTEGER,dish_id: INTEGER,quantity: price}} item
  * @return {Promise<{}>} A promise to the order.
  */
-const generateOrderSummary = function(item) {
-  console.log(item);
-  return pool
-    .query(
+const generateOrderSummary = function(orderId, item) {
+  const inserts = Object.keys(item).map(dishId => {
+    const quantity = item[dishId][1];
+    return pool.query(
       `
-      INSERT INTO ordered_items (order_id,dish_id,quantity) VALUES ($1,$2,$3) RETURNING *
-  `,
-      [item.order_id, item.dish_id, item.quantity]
-    )
-    .then(res => res.rows);
+    INSERT INTO ordered_items (order_id,dish_id,quantity) VALUES ($1,$2,$3) RETURNING *
+`,
+      [orderId, dishId, quantity]
+    );
+  });
+
+  return Promise.all(inserts).then(results => {
+    //....
+  });
 };
 exports.generateOrderSummary = generateOrderSummary;
 
@@ -127,7 +130,8 @@ exports.generateOrderSummary = generateOrderSummary;
  * @param {string} order_id The id of the order.
  * @return {Promise<[{}]>} A promise to the order_id
  */
-const getOrderSummary = function() {
+const getOrderSummary = function(orderId) {
+  let number = Number(Object.values(orderId));
   return pool
     .query(
       `
@@ -138,7 +142,7 @@ const getOrderSummary = function() {
       GROUP BY order_id,dishes.name,quantity,price;
 
   `,
-      [3]
+      [number]
     )
     .then(res => res.rows);
   // return getOrderSummary

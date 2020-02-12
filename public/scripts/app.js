@@ -1,15 +1,15 @@
-$(() => {
-  $.ajax({
-    method: "GET",
-    url: "/api/users"
-  }).done(users => {
-    for (user of users) {
-      $("<div>")
-        .text(user.name)
-        .appendTo($("body"));
-    }
-  });
-});
+// $(() => {
+//   $.ajax({
+//     method: "GET",
+//     url: "/api/users"
+//   }).done(users => {
+//     for (user of users) {
+//       $("<div>")
+//         .text(user.name)
+//         .appendTo($("body"));
+//     }
+//   });
+// });
 
 $(document).ready(function() {
   $(".dish-add").click(function(e) {
@@ -26,21 +26,21 @@ $(document).ready(function() {
     if ($(`#order-${id}`).length === 0) {
       $(".order-list").append(
         ` <div id="order-${id}" class="order-detail ordered-detail">
-          <p id="ordered-item-${id}">${dishTitle}</p>
-          <p id="ordered-qty-${id}">${newQty}</p>
-          <p id="ordered-price-${id}">$${orderPrice}</p>
-        </div>`
+          <input id="ordered-item-${id}" name="${id}" value="${dishTitle}">
+          <input id="ordered-qty-${id}" name="${id}" value ="${newQty}">
+          <input id="ordered-price-${id}" name="${id}" value ="$${orderPrice}">
+          </div>`
       );
     } else {
-      $(`#ordered-qty-${id}`).html(newQty);
-      $(`#ordered-price-${id}`).html(`$${orderPrice}`);
+      $(`#ordered-qty-${id}`).val(newQty);
+      $(`#ordered-price-${id}`).val(`$${orderPrice}`);
     }
     let orderSubTotal = 0;
 
     for (let i = 0; i <= $(`#order-${id}`).length - 1; i++) {
       orderSubTotal += Number(orderPrice);
     }
-    console.log(orderSubTotal);
+
     $("#sub-total-price").html(`$${orderSubTotal}`);
     // let orderTotal = Number($("#sub-total-price").html());
     // let orderTotalTax = (orderTotal * 1.13).toFixed(2);
@@ -62,21 +62,20 @@ $(document).ready(function() {
       if ($(`#order-${id}`).length === 0) {
         $(".order-list").append(
           ` <div id="order-${id}" class="order-detail ordered-detail">
-          <p id="ordered-item-${id}">${dishTitle}</p>
-          <p id="ordered-qty-${id}">${newQty}</p>
-          <p id="ordered-price-${id}">$${orderPrice}</p>
+          <input id="ordered-item-${id}" name="ordered-item-${id}" value="${dishTitle}" >
+          <input id="ordered-qty-${id}" name="ordered-qty-${id}" value ="${newQty}" >
+          <input id="ordered-price-${id}" name="ordered-price-${id}" value ="$${orderPrice}">
           </div>`
         );
       } else if (newQty === 0) {
-        console.log("hello");
         $(`#order-${id}`).remove();
       } else {
-        $(`#ordered-qty-${id}`).html(newQty);
-        $(`#ordered-price-${id}`).html(`$${orderPrice}`);
+        $(`#ordered-qty-${id}`).val(newQty);
+        $(`#ordered-price-${id}`).val(`$${orderPrice}`);
       }
     }
     let orderSubTotal = Number($(`#ordered-price${id}`).html());
-    console.log(orderSubTotal);
+
     $("#sub-total-price").html(orderSubTotal);
     let orderTotal = Number($("#sub-total-price").html());
     let orderTotalTax = (orderTotal * 1.13).toFixed(2);
