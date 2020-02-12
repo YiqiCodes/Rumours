@@ -55,33 +55,33 @@
       <% }); %>
 
     </div>
-    <div class="order-summary">
-      <p class="order-summary-title">Order summary</p>
-      <div class="order-detail">
-        <p class="order-item">Item</p>
-        <p class="order-qty">Qty</p>
-        <p class="order-price">Price</p>
-      </div>
-      <div class="order-list">
+    <form action="/api/homes" method="POST" name="ordersummary">
+      <div class="order-summary">
+        <p class="order-summary-title">Order summary</p>
+        <div class="order-detail">
+          <p class="order-item">Item</p>
+          <p class="order-qty">Qty</p>
+          <p class="order-price">Price</p>
+        </div>
+        <div class="order-list">
 
 
-      </div>
-      <div class="sub-total order-detail">
-        <p>Sub-Total</p>
-        <p id="sub-total-price"></p>
+        </div>
+        <div class="sub-total order-detail">
+          <p>Sub-Total</p>
+          <p id="sub-total-price"></p>
 
-      </div>
-      <!-- <div class="sub-total order-detail">
-        <p>Tax</p>
-        <p id="tax-price"></p>
-      </div> -->
-      <div class="total order-detail">
-        <p>Total</p>
-        <p id="total-price"></p>
-      </div>
-      <form action="/api/homes" method="POST">
+        </div>
+        <div class="sub-total order-detail">
+          <p>Tax</p>
+          <p id="tax-price"></p>
+        </div>
+        <div class="total order-detail">
+          <p>Total</p>
+          <p id="total-price"></p>
+        </div>
         <input class="submit-order" type="submit" value="Order">
-      </form>
+    </form>
     </div>
   </main>
 

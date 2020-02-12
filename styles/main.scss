@@ -43,16 +43,6 @@
   justify-content: space-between;
 }
 
-.ordered-detail {
-  color: white;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  // grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 10px;
-
-  justify-content: space-between;
-}
 
 main {
   display: flex;
@@ -138,15 +128,27 @@ main {
   color: orangered;
 }
 
-.ordered-item,
-.ordered-qty,
-.ordered-price {
+.ordered-item {
   color: white;
+  background: none;
+  width: 100%;
+  border: none;
+  white-space: nowrap;
+}
+
+.ordered-detail {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  justify-content: space-between;
 }
 
 .sub-total {
-  margin-top: 20%;
+  margin-top: 2%;
   color: rgb(228, 162, 139);
+}
+
+.price {
+  text-align: right;
 }
 
 .total {
