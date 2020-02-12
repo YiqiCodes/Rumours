@@ -13,27 +13,28 @@ module.exports = function(db) {
   });
 
   //to send order summary to restaurant
-  router.get("/order", (req, res) => {
-    Promise.all([db.getOrderSummary(req.query), db.getOrderTotal(req.query)])
+  router.get("/order/:orderId", (req, res) => {
+    Promise.all([db.getOrderSummary(req.params), db.getOrderTotal(req.params)])
       .then(([order, total]) => {
         res.render("order", { order: order, total });
       })
       .catch(e => {
-        console.log.error(e);
+        console.error(e);
         res.send(e);
       });
   });
 
   //to generate order in db
   router.post("/order", (req, res) => {
-    // console.log("REQ BODY ==== > ", req.body);
-    const customerId = req.session.customerId;
+    const customerId = 1;
     db.generateOrder({ ...req.body, customerId })
-      .then(order => Promise.all([db.generateOrderSummary(order)]))
-      .then(([order, total]) => {
-        res.redirect("order");
-        return twilioText({ order, total });
+      .then(orderId => {
+        db.generateOrderSummary(orderId, req.body).then(() => {
+          res.redirect(`order/${orderId}`);
+          // return twilioText({ order, total });
+        });
       })
+
       .catch(e => {
         console.error(e);
         res.send(e);
@@ -42,3 +43,16 @@ module.exports = function(db) {
 
   return router;
 };
+
+// const customerId = 1;
+// db.generateOrder({ ...req.body, customerId }) // good
+//   .then(order => Promise.all([db.generateOrderSummary(order)]))
+//   .then(([order, total]) => {
+//     res.redirect("order");
+//     // return twilioText({ order, total });
+//   })
+//   .catch(e => {
+//     console.error(e);
+//     res.send(e);
+//   });
+// });

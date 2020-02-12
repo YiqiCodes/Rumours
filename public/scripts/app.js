@@ -1,15 +1,15 @@
-$(() => {
-  $.ajax({
-    method: "GET",
-    url: "/api/users"
-  }).done(users => {
-    for (user of users) {
-      $("<div>")
-        .text(user.name)
-        .appendTo($("body"));
-    }
-  });
-});
+// $(() => {
+//   $.ajax({
+//     method: "GET",
+//     url: "/api/users"
+//   }).done(users => {
+//     for (user of users) {
+//       $("<div>")
+//         .text(user.name)
+//         .appendTo($("body"));
+//     }
+//   });
+// });
 
 $(document).ready(function() {
   let orderSubTotal = 0;
@@ -28,8 +28,8 @@ $(document).ready(function() {
       $(".order-list").append(
         ` <div id="order-${id}" class="ordered-detail">
           <input class="ordered-item dish-name" id="ordered-item-${id}" name="${id}" value="${dishTitle}">
-          <input class="ordered-item" id="ordered-qty-${id}" name="quantity${id}"  value="${newQty}">
-          <input class="ordered-item price" name="price${id}" id="ordered-price-${id}" value="$${orderPrice}">
+          <input class="ordered-item" id="ordered-qty-${id}" name="${id}"  value="${newQty}">
+          <input class="ordered-item price" name="${id}" id="ordered-price-${id}" value="$${orderPrice}">
           </div>`
       );
     } else {
@@ -66,12 +66,11 @@ $(document).ready(function() {
         $(".order-list").append(
           ` <div id="order-${id}" class="order-detail ordered-detail">
           <input id="ordered-item-${id}" name="${id}" value="${dishTitle}">
-          <input id="ordered-qty-${id}" name="quantity${id}"  value="${newQty}">
-          <input class="ordered-price" name="price${id}" id="ordered-price-${id}" value="$${orderPrice}">
+          <input id="ordered-qty-${id}" name="${id}"  value="${newQty}">
+          <input class="ordered-price" name="${id}" id="ordered-price-${id}" value="$${orderPrice}">
           </div>`
         );
       } else if (newQty === 0) {
-        console.log("hello");
         $(`#order-${id}`).remove();
       } else {
         $(`#ordered-qty-${id}`).val(newQty);
