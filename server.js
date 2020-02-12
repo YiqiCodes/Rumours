@@ -11,7 +11,6 @@ const app = express();
 const morgan = require("morgan");
 const cookieSession = require("cookie-session");
 const usersRoutes = require("./routes/userRoutes");
-const apiRoutes = require("./routes/apiRoutes");
 const homeRoutes = require("./routes/homeRoutes");
 
 // Require API's
@@ -48,8 +47,6 @@ app.use(express.static("public"));
 // Mount all resource routes
 // /user/endpoints
 app.use("/user", usersRoutes(db));
-// /api/endpoints
-app.use("/api", apiRoutes(db));
 
 app.use("/home", homeRoutes(db));
 
