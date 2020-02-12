@@ -17,40 +17,69 @@ $(document).ready(function() {
     let id = $(this)
       .closest(".dish-item")
       .attr("id");
-    console.log(id);
     let dishTitle = $(`#dish-title-${id}`).html();
-    $(`#ordered-item-${id}`).html(dishTitle);
-    let oldQty = parseInt($(`#dish-item${id}-qty`).val());
+    let oldQty = Number($(`#dish-item${id}-qty`).val());
     let newQty = oldQty + 1;
-    addMinus(newQty, id);
-  });
-
-  $("#dish-item1-minus").click(function(e) {
-    e.preventDefault();
-    let dishTitle = $("#dish-title-pizza").html();
-    $("#ordered-item1").html(dishTitle);
-    let oldQty = parseInt($("#dish-item1-qty").val());
-    if (oldQty > 0) {
-      let newQty = oldQty - 1;
-      addMinus(newQty);
-    }
-  });
-});
-
-const addMinus = (newQty, id) => {
-  $(`#dish-item${id}-qty`).val(newQty);
-  if (!$("#order-1")) {
-  } else {
-    console.log("hello");
-
-    $("#ordered-qty1").html(newQty);
     let itemPrice = Number($(`#dish-price-${id}`).html());
     let orderPrice = Number(newQty * itemPrice).toFixed(2);
-    $("#ordered-price1").text(orderPrice);
-  }
-  let orderSubTotal = $("#ordered-price1").html();
-  $("#sub-total-price").html(orderSubTotal);
-  let orderTotal = Number($("#sub-total-price").html());
-  let orderTotalTax = (orderTotal * 1.13).toFixed(2);
-  $("#total-price").html(orderTotalTax);
-};
+    $(`#dish-item${id}-qty`).val(newQty);
+    if ($(`#order-${id}`).length === 0) {
+      $(".order-list").append(
+        ` <div id="order-${id}" class="order-detail ordered-detail">
+          <p id="ordered-item-${id}">${dishTitle}</p>
+          <p id="ordered-qty-${id}">${newQty}</p>
+          <p id="ordered-price-${id}">$${orderPrice}</p>
+        </div>`
+      );
+    } else {
+      $(`#ordered-qty-${id}`).html(newQty);
+      $(`#ordered-price-${id}`).html(`$${orderPrice}`);
+    }
+    let orderSubTotal = 0;
+
+    for (let i = 0; i <= $(`#order-${id}`).length - 1; i++) {
+      orderSubTotal += Number(orderPrice);
+    }
+    console.log(orderSubTotal);
+    $("#sub-total-price").html(`$${orderSubTotal}`);
+    // let orderTotal = Number($("#sub-total-price").html());
+    // let orderTotalTax = (orderTotal * 1.13).toFixed(2);
+    // $("#total-price").html(orderTotalTax);
+  });
+
+  $(".dish-minus").click(function(e) {
+    e.preventDefault();
+    let id = $(this)
+      .closest(".dish-item")
+      .attr("id");
+    let dishTitle = $(`#dish-title-${id}`).html();
+    let oldQty = Number($(`#dish-item${id}-qty`).val());
+    if (oldQty > 0) {
+      let newQty = oldQty - 1;
+      let itemPrice = Number($(`#dish-price-${id}`).html());
+      let orderPrice = Number(newQty * itemPrice).toFixed(2);
+      $(`#dish-item${id}-qty`).val(newQty);
+      if ($(`#order-${id}`).length === 0) {
+        $(".order-list").append(
+          ` <div id="order-${id}" class="order-detail ordered-detail">
+          <p id="ordered-item-${id}">${dishTitle}</p>
+          <p id="ordered-qty-${id}">${newQty}</p>
+          <p id="ordered-price-${id}">$${orderPrice}</p>
+          </div>`
+        );
+      } else if (newQty === 0) {
+        console.log("hello");
+        $(`#order-${id}`).remove();
+      } else {
+        $(`#ordered-qty-${id}`).html(newQty);
+        $(`#ordered-price-${id}`).html(`$${orderPrice}`);
+      }
+    }
+    let orderSubTotal = Number($(`#ordered-price${id}`).html());
+    console.log(orderSubTotal);
+    $("#sub-total-price").html(orderSubTotal);
+    let orderTotal = Number($("#sub-total-price").html());
+    let orderTotalTax = (orderTotal * 1.13).toFixed(2);
+    $("#total-price").html(orderTotalTax);
+  });
+});
