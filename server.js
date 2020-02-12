@@ -53,6 +53,23 @@ app.use("/api", apiRoutes(db));
 
 app.use("/home", homeRoutes(db));
 
+app.get("/test", (req, res) => {
+  res.render("test.ejs");
+});
+app.post("/test", (req, res) => {
+  let items = {};
+  items[Object.keys(req.body)] = req.body.pasta;
+  // console.log(req);
+  console.log(items);
+});
+
+app.post("/order-summary", (req, res) => {
+  let items = {};
+  items[Object.keys(req.body)] = req.body.pasta;
+  // console.log(req);
+  console.log(items);
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

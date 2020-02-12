@@ -21,10 +21,11 @@ module.exports = function(db) {
     })
    }); //to generate order in db
   router.post("/order", (req, res) => {
-    const customerId = req.session.customerId;
-    db.generateOrder({ ...req.body, customerId })
-      .then(order => {
-        res.send(order);
+    // const customerId = req.session.customerId;
+    console.log(req.body);
+    Promise.all([db.generateOrder(...req.body),db.getOrderSummary(...req.body)])
+      .then(([order,total]) => {
+        res.send(order,total);
       })
       .catch(e => {
         console.error(e);

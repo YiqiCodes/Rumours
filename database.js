@@ -105,11 +105,11 @@ exports.generateOrder = generateOrder;
 
 /**
  * Add a new item to ordered-items database.
- * @param {{order_id: INTEGER,dish_id: INTEGER,quantity: price}} item
+ * @param {{order_id: INTEGER,dish_id: INTEGER,quantity: INTEGER, price: INTEGER}} item
  * @return {Promise<{}>} A promise to the order.
  */
 const generateOrderSummary = function(item) {
-  console.log(item);
+  // console.log(item);
   return pool
     .query(
       `

@@ -55,6 +55,10 @@
       <% }); %>
 
     </div>
+
+    <form id="form" action="home/order/" method="post">
+
+
     <div class="order-summary">
       <p class="order-summary-title">Order summary</p>
       <div class="order-detail">
@@ -80,7 +84,8 @@
         <p>Total</p>
         <p id="total-price"></p>
       </div>
-      <form action="/api/homes" method="POST">
+
+      <form action="/api/home" method="POST">
         <input class="submit-order" type="submit" value="Order">
       </form>
     </div>
