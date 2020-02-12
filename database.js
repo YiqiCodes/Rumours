@@ -127,7 +127,7 @@ exports.generateOrderSummary = generateOrderSummary;
  * @param {string} order_id The id of the order.
  * @return {Promise<[{}]>} A promise to the order_id
  */
-const getOrderSummary = function(order_id) {
+const getOrderSummary = function() {
   return pool
     .query(
       `

@@ -11,17 +11,15 @@ module.exports = function(db) {
       });
   });
 
-  //to send order summary to restaurant
+  //to send order summary to restaurant & to render "/home/order" page
   router.get("/order", (req, res) => {
-    Promise.all([db.getOrderSummary(req.query), db.getOrderTotal(req.query)])
-      .then(([order, total]) => res.render("order", { order: order, total }))
-      .catch(e => {
-        console.log.error(e);
-        res.send(e);
-      });
-  });
-
-  //to generate order in db
+    Promise.all([db.getOrderSummary(req.query),db.getOrderTotal(req.query)])
+    .then(([order,total])=> res.render("order",{order: order,total}))
+    .catch(e => {
+      console.error(e);
+      res.send(e);
+    })
+   }); //to generate order in db
   router.post("/order", (req, res) => {
     const customerId = req.session.customerId;
     db.generateOrder({ ...req.body, customerId })
@@ -34,5 +32,19 @@ module.exports = function(db) {
       });
   });
 
+
+
   return router;
 };
+// //to generate orderSummary in db
+// router.post("/order", (req, res) => {
+//   const customerId = req.session.customerId;
+//   db.generateOrderSummary({ ...req.body, customerId })
+//     .then(order => {
+//       res.send(order);
+//     })
+//     .catch(e => {
+//       console.error(e);
+//       res.send(e);
+//     });
+// });
