@@ -12,6 +12,7 @@ const morgan = require("morgan");
 const cookieSession = require("cookie-session");
 const usersRoutes = require("./routes/userRoutes");
 const homeRoutes = require("./routes/homeRoutes");
+const twilioRoutes = require("./routes/twilioRoutes");
 
 // Require API's
 const twilioText = require("./apis/twilio");
@@ -50,9 +51,7 @@ app.use("/user", usersRoutes(db));
 
 app.use("/home", homeRoutes(db));
 
-app.get("/twilio", (req, res) => {
-  res.render("twilio.ejs");
-});
+app.use("/twilio", twilioRoutes());
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

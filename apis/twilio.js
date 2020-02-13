@@ -4,24 +4,26 @@ function twilioText(orderConfirmation) {
   const resturantNumber = process.env.resturantNumber;
   const customerNumber = process.env.customerNumber;
   const twilioNumber = process.env.twilioNumber;
+  const ngrok = "http://854239f6.ngrok.io";
+
   const client = require("twilio")(accountSid, authToken);
 
-  // const dish = Object.values(orderConfirmation);
-  // const totalOrder = [];
-  // dish.forEach(element => {
-  //   totalOrder.push(element);
-  // });
-  // let msg = "";
-  // for (let item of totalOrder) {
-  //   msg += `${item[0]} - Quantity : ${item[1]}\n`;
-  // }
+  const dish = Object.values(orderConfirmation);
+  const totalOrder = [];
+  dish.forEach(element => {
+    totalOrder.push(element);
+  });
+  let msg = "";
+  for (let item of totalOrder) {
+    msg += `${item[0]} - Quantity : ${item[1]}\n`;
+  }
 
-  // // resturant
-  // client.messages.create({
-  //   body: `Order Received: \n ${msg}`,
-  //   from: twilioNumber,
-  // to: resturantNumber
-  // });
+  // resturant
+  client.messages.create({
+    body: `Order Received: \n ${msg}`,
+    from: twilioNumber,
+    to: resturantNumber
+  });
 
   // // customer text
   // client.messages.create({
@@ -30,13 +32,11 @@ function twilioText(orderConfirmation) {
   //   to: customerNumber
   // });
 
-  //customer call - NEED TO SOMEHOW GET HTML INTO URL?
-
-  // client.calls.create({
-  //   url: "/twilio",
-  //   from: twilioNumber,
-  //   to: customerNumber
-  // });
+  client.calls.create({
+    url: `${ngrok}/twilio/test`,
+    from: twilioNumber,
+    to: customerNumber
+  });
 }
 
-module.exports = twilioText;
+// module.exports = twilioText;
