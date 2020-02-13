@@ -15,6 +15,7 @@ $(document).ready(function() {
   let orderSubTotal = 0;
   $(".dish-add").click(function(e) {
     e.preventDefault();
+    $(".order-summary").css("visibility", "visible");
     let id = $(this)
       .closest(".dish-item")
       .attr("id");
@@ -86,11 +87,9 @@ $(document).ready(function() {
       let orderTotalTax = (orderTotal * 1.13).toFixed(2);
       $("#total-price").html(`$${orderTotalTax}`);
     }
-  });
 
-  $(".submit-order").click(function(e) {
-    alert(
-      "Thank you for ordering! You will receive a text shortly with confirmation."
-    );
+    if ($(".ordered-detail").length === 0) {
+      $(".order-summary").css("visibility", "hidden");
+    }
   });
 });
