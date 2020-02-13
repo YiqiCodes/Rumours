@@ -39,16 +39,16 @@
       <div class="order-detail ordered-detail">
         <p class="ordered-item"><%= order.item %></p>
         <p class="ordered-item"><%= order.quantity %></p>
-        <p class="ordered-item price">$<%= (order.sum).toFixed(2) %></p>
+        <p class="ordered-item price">$<%= (order.sum) %></p>
       </div>
       <% }); %>
       <div class="sub-total order-detail">
         <p>Sub-Total</p>
-        <p id="sub-total-price">$<%= Number((total[0].sum)).toFixed(2) %></p>
+        <p id="sub-total-price">$<%= Number((total[0].sum)) %></p>
       </div>
       <div class="order-detail">
         <p>Tax</p>
-        <p id="tax-price"><%= (Number(total[0].sum)* 0.13).toFixed(2) %></p>
+        <p id="tax-price">$<%= (Number(total[0].sum)* 0.13).toFixed(2) %></p>
       </div>
       <div class="total order-detail">
         <p>Total</p>
