@@ -31,10 +31,9 @@ module.exports = function(db) {
       .then(orderId => {
         db.generateOrderSummary(orderId, req.body).then(() => {
           res.redirect(`order/${orderId}`);
-          // return twilioText({ order, total });
+          return twilioText({ ...req.body });
         });
       })
-
       .catch(e => {
         console.error(e);
         res.send(e);

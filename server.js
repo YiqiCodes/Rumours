@@ -50,6 +50,10 @@ app.use("/user", usersRoutes(db));
 
 app.use("/home", homeRoutes(db));
 
+app.get("/twilio", (req, res) => {
+  res.render("twilio.ejs");
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
