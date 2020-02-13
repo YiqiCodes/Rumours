@@ -22,6 +22,7 @@ function initMap() {
     }, // HOME
     travelMode: google.maps.TravelMode[selectedMode]
   };
+
   // render routes
   directionsService.route(route, function(response, status) {
     // anonymous function to capture directions
@@ -38,9 +39,9 @@ function initMap() {
         if (document.getElementById("msg") != null) {
           document.getElementById(
             "msg"
-          ).innerHTML = ` ${selectedMode} DISTANCE IS
-              ${directionsData.distance.text} /
-              ${directionsData.duration.text}`;
+          ).innerHTML = `Total ${selectedMode} distance is
+              ${directionsData.distance.text}, it will take approximately
+              ${directionsData.duration.text} .`;
         }
       }
     }
