@@ -87,4 +87,10 @@ $(document).ready(function() {
       $("#total-price").html(`$${orderTotalTax}`);
     }
   });
+
+  $(".submit-order").click(function(e) {
+    alert(
+      "Thank you for ordering! You will receive a text shortly with confirmation."
+    );
+  });
 });
