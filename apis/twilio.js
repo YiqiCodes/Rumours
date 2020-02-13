@@ -1,6 +1,9 @@
 function twilioText(orderConfirmation) {
   const accountSid = process.env.accountSid;
   const authToken = process.env.authToken;
+  const resturantNumber = process.env.resturantNumber;
+  const customerNumber = process.env.customerNumber;
+  const twilioNumber = process.env.twilioNumber;
   const client = require("twilio")(accountSid, authToken);
 
   // const dish = Object.values(orderConfirmation);
@@ -16,24 +19,24 @@ function twilioText(orderConfirmation) {
   // // resturant
   // client.messages.create({
   //   body: `Order Received: \n ${msg}`,
-  //   from: "+14242887153",
-  //   to: "+16475320880"
+  //   from: twilioNumber,
+  // to: resturantNumber
   // });
 
   // // customer text
   // client.messages.create({
   //   body: `Thank you for ordering. Your order will be ready in 20 minutes`,
-  //   from: "+14242887153",
-  //   to: "+16133714897"
+  //   from: twilioNumber,
+  //   to: customerNumber
   // });
 
-  //customer call
+  //customer call - NEED TO SOMEHOW GET HTML INTO URL?
 
-  client.calls.create({
-    url: "/twilio",
-    from: "+14242887153",
-    to: "+16133714897"
-  });
+  // client.calls.create({
+  //   url: "/twilio",
+  //   from: twilioNumber,
+  //   to: customerNumber
+  // });
 }
 
 module.exports = twilioText;
