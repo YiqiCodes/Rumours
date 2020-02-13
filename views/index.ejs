@@ -44,8 +44,8 @@
       <% dishes.forEach(function(dish){ %>
       <div id="<%=  dish.id %>" class="dish-item">
         <p id="dish-title-<%=  dish.id %>" class="dish-title"><%- dish.name %></p>
-        <img class="dish-item-picture" src="/assets/pizza.png" alt="cheese pizza picture" />
-        <p class="dish-price" id="dish-price-<%=  dish.id %>"><%= dish.price %></p>
+        <img class="dish-item-picture" src="<%- dish.thumbnail_photo_url %>" alt="cheese pizza picture" />
+        <p class="dish-price" id="dish-price-<%=  dish.id %>"><%= (dish.price) %></p>
         <form class="dish-purchase" action="" method="post">
           <input class="dish-minus" id="dish-item<%=  dish.id %>-minus" type="button" value="-">
           <input class="dish-qty" id="dish-item<%=  dish.id %>-qty" type="text" name="" value="0">
@@ -56,13 +56,13 @@
 
     </div>
     <form action="/home/order" id="orderssummary" name="ordersummary" method="POST">
-    <div < class="order-summary">
-      <p class="order-summary-title">Order summary</p>
-      <div class="order-detail">
-        <p class="order-item">Item</p>
-        <p class="order-qty">Qty</p>
-        <p class="order-price">Price</p>
-      </div>
+      <div < class="order-summary">
+        <p class="order-summary-title">Order summary</p>
+        <div class="order-detail">
+          <p class="order-item">Item</p>
+          <p class="order-qty">Qty</p>
+          <p class="order-price">Price</p>
+        </div>
         <div class="order-list">
         </div>
         <div class="sub-total order-detail">

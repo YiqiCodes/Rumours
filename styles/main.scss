@@ -1,17 +1,8 @@
-.dish-item {
-  height: 32vh;
-  width: 14vw;
-  /* background-color: rgb(218, 190, 190); */
-  margin: 25px;
-}
-
 .dish-items {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 36px;
-  grid-row-gap: 13px;
-  justify-content: space-between;
+  width: 70%;
 }
 
 .order-summary {
@@ -51,8 +42,8 @@ main {
 }
 
 .dish-item-picture {
-  height: 8rem;
-  width: 8rem;
+  height: 7rem;
+  width: 7rem;
 }
 
 .dish-item {
@@ -60,42 +51,36 @@ main {
   border: 1px solid orangered;
   border-radius: 5px;
   padding: 4%;
-  height: 40vh;
+  text-align: center;
+  min-height: 35vh;
+  width: 70%;
+  margin: 25px;
 }
 
 .dish-title {
-  position: absolute;
-  top: 5%;
-  left: 25%;
   font-weight: 700;
   color: orangered;
-  font-size: 1.8rem;
-}
-
-.dish-item-picture {
-  position: absolute;
-  top: 22%;
-  left: 18%;
+  font-size: 1.3rem;
+  width: 100%;
+  text-align: center
 }
 
 .dish-purchase {
-  position: absolute;
-  top: 78%;
-  left: 10%;
+  text-align: center;
   font-weight: 700;
   color: orangered;
   font-size: 1.5rem;
 }
 
 .dish-price {
-  color: orangered;
-  position: absolute;
-  top: 68%;
-  left: 35%;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-family: Sans-serif;
   font-size: 1.3rem;
+  margin: 1rem;
+  font-weight: 500;
+  color: white;
 }
+
 
 .dish-qty {
   width: 35%;

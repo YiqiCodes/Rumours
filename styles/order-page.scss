@@ -57,10 +57,9 @@ main {
   justify-content: space-between;
 }
 
-.ordered-item,
-.ordered-qty,
-.ordered-price {
+.ordered-item {
   color: white;
+
 }
 
 .sub-total {
@@ -77,9 +76,9 @@ main {
   width: 35%;
   background-color: rgba(8, 8, 8, 0.486);
   margin-right: 5%;
+  text-align: center;
   color: orangered;
   font-weight: 700;
-  text-align: center;
   padding: 5px;
   border: 1px solid orangered;
   border-radius: 10px;
@@ -98,4 +97,11 @@ main {
 
 .ordered-detail {
   color: white;
+  text-align: left;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.price {
+  text-align: right;
 }
