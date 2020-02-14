@@ -15,7 +15,7 @@ module.exports = function() {
     const twiml = new VoiceResponse();
     twiml.say(
       { voice: "alice" },
-      "Hello there. Thank you for ordering. Your order will be ready in twenty minutes."
+      "Hello there, good afternoon. Thank you for ordering. Your order will be ready in twenty minutes."
     );
 
     // Render the response as XML in reply to the webhook request
