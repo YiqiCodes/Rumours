@@ -21,7 +21,7 @@
 
 <body>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="#">Lighthouse Eats</a>
+    <a class="navbar-brand" href="#">Rumours - Restaurant & Lounge</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
       aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -35,32 +35,54 @@
   </nav>
   <header>
     <h1 class="welcome-message">
-      “Ate, eating, going to eat” that’s what you must care about.
+      <!-- “Ate, eating, going to eat” that’s what you must care about. -->
     </h1>
-  </header>
 
+    <div class="video-container">
+        <video id="videoBG" autoplay loop muted width="100%">
+          <source src="/assets/food-background-video .mp4" type="video/mp4">
+        </video>
+    </div>
+  </header>
   <main>
+    <p class ="menuheader"> Menu</p>
     <div class="dish-items">
-      <% dishes.forEach(function(dish){ %>
-      <div id="<%=  dish.id %>" class="dish-item">
-        <p id="dish-title-<%=  dish.id %>" class="dish-title"><%- dish.name %></p>
-        <img class="dish-item-picture" src="<%- dish.thumbnail_photo_url %>" alt="cheese pizza picture" />
-        <p class="dish-price" id="dish-price-<%=  dish.id %>"><%= (dish.price) %></p>
-        <form class="dish-purchase" action="" method="post">
-          <input class="dish-minus" id="dish-item<%=  dish.id %>-minus" type="button" value="-">
-          <input class="dish-qty" id="dish-item<%=  dish.id %>-qty" type="text" name="" value="0">
-          <input class="dish-add" id="dish-item<%=  dish.id %>-add" type="button" value="+">
-        </form>
+      <p class="dishsubheader"> Starters </p>
+      <div class="typestarters">
+        <% dishes.starters.forEach(function(dish){ %>
+          <%- include('_dish', { dish: dish }) %>
+        <% }); %>
       </div>
+
+      <p class="dishsubheader"> Mains </p>
+      <div class="typemains">
+      <% dishes.mains.forEach(function(dish){ %>
+        <%- include('_dish', { dish: dish }) %>
       <% }); %>
+      </div>
+
+      <p class="dishsubheader"> Desserts </p>
+      <div class="typedesserts">
+      <% dishes.desserts.forEach(function(dish){ %>
+        <%- include('_dish', { dish: dish }) %>
+      <% }); %>
+      </div>
+
+      <p class="dishsubheader"> Cocktails </p>
+      <div class="typecocktails">
+      <% dishes.cocktails.forEach(function(dish){ %>
+        <%- include('_dish', { dish: dish }) %>
+      <% }); %>
+      </div>
 
     </div>
+
     <form action="/home/order" id="orderssummary" name="ordersummary" method="POST">
       <div < class="order-summary">
-        <p class="order-summary-title">Order summary</p>
+        <p class="order-summary-title">Order Summary</p>
         <div class="order-detail">
           <p class="order-item">Item</p>
-          <p class="order-qty">Qty</p>
+          <p class="order-qty">Quantity</p>
           <p class="order-price">Price</p>
         </div>
         <div class="order-list">
@@ -82,6 +104,8 @@
     </form>
     </div>
   </main>
+  <footer>
+  </footer>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

@@ -39,9 +39,7 @@ function initMap() {
         if (document.getElementById("msg") != null) {
           document.getElementById(
             "msg"
-          ).innerHTML = `Total ${selectedMode} distance is
-              ${directionsData.distance.text}, it will take approximately
-              ${directionsData.duration.text} .`;
+          ).innerHTML = `Your order will be ready in 20 minutes. <br> If you leave now, it will take ~ ${directionsData.duration.text}.`;
         }
       }
     }

@@ -5,7 +5,15 @@ const twilioText = require("../apis/twilio.js");
 module.exports = function(db) {
   router.get("/", (req, res) => {
     db.getMenu(req.query)
-      .then(dishes => res.render("index", { dishes: dishes }))
+      .then(dishes => {
+        const grouped = {
+          starters: dishes.filter(dish => dish.type === "starters"),
+          mains: dishes.filter(dish => dish.type === "mains"),
+          desserts: dishes.filter(dish => dish.type === "desserts"),
+          cocktails: dishes.filter(dish => dish.type === "cocktails")
+        };
+        res.render("index", { dishes: grouped });
+      })
       .catch(e => {
         console.error(e);
         res.send(e);

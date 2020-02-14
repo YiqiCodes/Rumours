@@ -6,9 +6,9 @@
 }
 
 body {
-  background-image: url(/assets/food-background-green.jpg);
+  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
   background-size: cover;
-  background-color: rgba(0, 0, 0, 0.733);
+  background-color: rgb(255, 255, 255);
   background-blend-mode: overlay;
 }
 
@@ -17,28 +17,24 @@ body {
 }
 
 #msg {
-  color: rgb(235, 149, 117);
-  ;
+  color: rgb(31, 30, 29);
 }
 
 h1 {
-  font-family: 'Raleway',
-    sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 3rem;
-  color: orangered;
+  color: rgb(0, 0, 0);
   text-align: center;
 }
 
 h3 {
-  font-family: 'Raleway',
-    sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1.4rem;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 #mode {
-  font-family: 'Raleway',
-    sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: 1.2rem;
   color: rgb(216, 185, 174);
   background-color: rgba(0, 0, 0, 0.486);
@@ -46,7 +42,6 @@ h3 {
   border: 1px solid rgb(223, 190, 178);
   border-radius: 5px;
 }
-
 
 .travel-mode {
   display: inline-block;
@@ -59,12 +54,11 @@ main {
 
 .ordered-item {
   color: white;
-
 }
 
 .sub-total {
   margin-top: 2%;
-  color: rgb(228, 162, 139);
+  color: rgb(202, 200, 200);
 }
 
 .total {
@@ -72,15 +66,15 @@ main {
 }
 
 .order-summary {
-  height: 75vh;
+  min-height: 10vh;
   width: 35%;
   background-color: rgba(8, 8, 8, 0.486);
   margin-right: 5%;
   text-align: center;
-  color: orangered;
+  color: rgb(0, 0, 0);
   font-weight: 700;
   padding: 5px;
-  border: 1px solid orangered;
+  border: 1px solid rgb(0, 0, 0);
   border-radius: 10px;
 }
 
@@ -91,15 +85,14 @@ main {
 }
 
 .order-detail {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  text-align: left;
 }
 
 .ordered-detail {
   color: white;
-  text-align: left;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  // text-align: left;
 }
 
 .price {
