@@ -91,5 +91,9 @@ $(document).ready(function() {
     if ($(".ordered-detail").length === 0) {
       $(".order-summary").css("visibility", "hidden");
     }
+
+    // if ($(".dish-qty").length === 0) {
+    //   $(".dish-qty").css("visibility", "hidden");
+    // }
   });
 });

@@ -12,6 +12,7 @@
   <link type="text/css" href="/styles/nav-bar.css" rel="stylesheet" />
   <link type="text/css" href="/styles/header.css" rel="stylesheet" />
   <link type="text/css" href="/styles/main.css" rel="stylesheet" />
+  <link type="text/css" href="/styles/footer.css" rel="stylesheet" />
   <script src="https://kit.fontawesome.com/2c4ef76a61.js" crossorigin="anonymous"></script>
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -28,15 +29,12 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
-        <li class="nav-item"><a class="nav-link" href="#">Register</a></li>
+        <li class="nav-item"><a class="nav-link" href="#"> Stevie Nicks</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="#">Register</a></li> -->
       </ul>
     </div>
   </nav>
   <header>
-    <h1 class="welcome-message">
-      <!-- “Ate, eating, going to eat” that’s what you must care about. -->
-    </h1>
 
     <div class="video-container">
         <video id="videoBG" autoplay loop muted width="100%">
@@ -78,7 +76,7 @@
     </div>
 
     <form action="/home/order" id="orderssummary" name="ordersummary" method="POST">
-      <div < class="order-summary">
+      <div class="order-summary">
         <p class="order-summary-title">Order Summary</p>
         <div class="order-detail">
           <p class="order-item">Item</p>
@@ -89,22 +87,28 @@
         </div>
         <div class="sub-total order-detail">
           <p>Sub-Total</p>
-          <p id="sub-total-price"></p>
+          <p id="sub-total-price" class="underline"></p>
 
         </div>
         <div class="sub-total order-detail">
-          <p>Tax</p>
-          <p id="tax-price"></p>
+          <p>Tax (13%) </p>
+          <p id="tax-price" class="underline"></p>
         </div>
         <div class="total order-detail">
           <p>Total</p>
-          <p id="total-price"></p>
+          <p id="total-price" class="underlinetotal"></p>
         </div>
+        <div class="order-line">
+        <img class="user-picture" src="<%- '/assets/woman.png' %>" />
         <input class="submit-order" type="submit" value="Order">
+      </div>
     </form>
     </div>
   </main>
   <footer>
+    <div class="fixed-footer">
+      <div class="footer-container"> Created February 2020 | Meghanath Balakrishnan, Parth Desai, Tyler Zhang</div>
+    </div>
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"

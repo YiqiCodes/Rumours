@@ -9,7 +9,6 @@ body {
   background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
   background-size: cover;
   background-color: rgb(255, 255, 255);
-  background-blend-mode: overlay;
 }
 
 .google-maps {
@@ -17,7 +16,7 @@ body {
 }
 
 #msg {
-  color: rgb(31, 30, 29);
+  color: rgb(94, 94, 94);
 }
 
 h1 {
@@ -36,10 +35,10 @@ h3 {
 #mode {
   font-family: "Raleway", sans-serif;
   font-size: 1.2rem;
-  color: rgb(216, 185, 174);
-  background-color: rgba(0, 0, 0, 0.486);
+  color: rgb(255, 255, 255);
+  background-color: rgba(80, 80, 80, 0.486);
   padding: 5px;
-  border: 1px solid rgb(223, 190, 178);
+  border: 1px solid rgb(0, 0, 0);
   border-radius: 5px;
 }
 
@@ -58,7 +57,7 @@ main {
 
 .sub-total {
   margin-top: 2%;
-  color: rgb(202, 200, 200);
+  color: rgb(112, 112, 112);
 }
 
 .total {
@@ -68,7 +67,7 @@ main {
 .order-summary {
   min-height: 10vh;
   width: 35%;
-  background-color: rgba(8, 8, 8, 0.486);
+  background-color: rgba(80, 80, 80, 0.486);
   margin-right: 5%;
   text-align: center;
   color: rgb(0, 0, 0);
@@ -76,10 +75,12 @@ main {
   padding: 5px;
   border: 1px solid rgb(0, 0, 0);
   border-radius: 10px;
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
 }
 
 .order-summary-title {
-  border-bottom: 1px solid rgb(235, 160, 133);
+  border-bottom: 1px solid rgb(255, 255, 255);
   border-radius: 15px;
   padding-bottom: 5px;
 }
@@ -97,4 +98,26 @@ main {
 
 .price {
   text-align: right;
+}
+
+.underline {
+  text-decoration-line: underline;
+}
+
+.total {
+  text-decoration-style: double;
+}
+
+.tax-price {
+  color: rgb(112, 112, 112);
+}
+
+.user-picture {
+  width: 30%;
+  border-radius: 50%;
+}
+
+.user-support {
+  position: fixed;
+  bottom: 0;
 }
