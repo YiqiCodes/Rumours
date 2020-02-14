@@ -1,10 +1,10 @@
-// .dish-items {
-//   display: grid;
-//   grid-template-columns: repeat(3, 1fr);
-//   grid-template-rows: repeat(4, 1fr);
-//   column-gap: 8px;
-//   width: 70%;
-// }
+.dish-items {
+  // display: grid;
+  // grid-template-columns: repeat(3, 1fr);
+  // grid-template-rows: repeat(4, 1fr);
+  // column-gap: 8px;
+  width: 100%;
+}
 
 .typestarters {
   display: grid;
@@ -139,6 +139,7 @@ main {
   background-color: rgb(228, 114, 72);
   color: black;
 }
+
 .dish-minus:hover {
   background-color: rgb(223, 183, 168);
   color: black;
@@ -178,12 +179,11 @@ main {
 }
 
 .menuheader {
-  color: rgb(102, 73, 63);
-  border-bottom: 1px solid black;
-
-  margin-left: 23px;
+  color: #66493f;
+  margin-left: 1%;
   font-size: 3rem;
-  // text-decoration: underline;
+  text-decoration-line: underline;
+  margin-top: 6%;
 }
 
 .total {
