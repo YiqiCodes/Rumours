@@ -1,5 +1,4 @@
 INSERT INTO dishes
-<<<<<<< HEAD
   (name,thumbnail_photo_url,price, type)
 VALUES
   ('Classic Pumpkin Soup', '/assets/classicmisosoup.jpeg', 8.99, 'starters');
@@ -47,34 +46,4 @@ INSERT INTO dishes
   (name,thumbnail_photo_url,price, type)
 VALUES
   ('Turkish Ice Cream', '/assets/icecream.jpeg', 14.99, 'desserts');
-
-
-
-
-
-=======
-  (name,thumbnail_photo_url,price)
-VALUES
-  ('Chicken Burger', '/assets/cheeseburger-chicken.jpg', 8.99);
-INSERT INTO dishes
-  (name,thumbnail_photo_url,price)
-VALUES
-  ('Pasta', '/assets/pasta.png', 9.99);
-INSERT INTO dishes
-  (name,thumbnail_photo_url,price)
-VALUES
-  ('Cheese Burger', '/assets/cheeseburger.jpg', 6.99);
-INSERT INTO dishes
-  (name,thumbnail_photo_url,price)
-VALUES
-  ('Caesar Salad', '/assets/caesar-salad.jpg', 5.99);
-INSERT INTO dishes
-  (name,thumbnail_photo_url,price)
-VALUES
-  ('Pulled pork poutine', '/assets/pulled-porked-poutine.jpg', 4.99);
-INSERT INTO dishes
-  (name,thumbnail_photo_url,price)
-VALUES
-  ('Biryani', '/assets/biryani.jpg', 7.99);
->>>>>>> 23420272d09ac0d73c2a3752598b069ed10567a9
 
