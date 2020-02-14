@@ -47,5 +47,8 @@ INSERT INTO dishes
 VALUES
   ('Turkish Ice Cream', '/assets/icecream.jpeg', 9.99, 'desserts');
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> fabb872ad1d637550b95365019507f934447d956

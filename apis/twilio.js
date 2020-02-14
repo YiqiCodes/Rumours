@@ -39,4 +39,4 @@ function twilioText(orderConfirmation) {
   });
 }
 
-module.exports = twilioText;
+// module.exports = twilioText;
