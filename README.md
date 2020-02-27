@@ -4,6 +4,14 @@ A restaurant application that allows the customer to select items from a menu an
 
 An order summary will then display on the app and a map will render showing the directions from the customer's address to Rumours.
 
+## Screenshots
+
+!["Main Page"](https://github.com/TylerZhang00/LighthouseEats/blob/master/docs/Main%20Page.png?raw=true)
+
+!["Summary Page"](https://github.com/TylerZhang00/LighthouseEats/blob/master/docs/Order%20Summary%20Page.png?raw=true)
+
+!["Title Page"](https://github.com/TylerZhang00/LighthouseEats/blob/master/docs/Title%20Page.png?raw=true)
+
 ## Setup
 
 Install dependencies with `npm install`
