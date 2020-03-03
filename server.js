@@ -49,7 +49,7 @@ app.use(express.static("public"));
 // /user/endpoints
 app.use("/user", usersRoutes(db));
 
-app.use("/home", homeRoutes(db));
+app.use("/", homeRoutes(db));
 
 app.use("/twilio", twilioRoutes());
 
