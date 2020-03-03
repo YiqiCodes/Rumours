@@ -12,5 +12,5 @@
   command = "npm run build"
 
 [build.environment]
-  command = "node ./build.js"
-  publish = "public"
+  REACT_APP_API_BASE_URL = "https://rumours.herokuapp.com/"
+  REACT_APP_WEBSOCKET_URL = "wss://rumours.herokuapp.com/"
