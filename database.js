@@ -1,13 +1,16 @@
 // const properties = require("./json/properties.json");
 // const users = require("./json/users.json");
 const { Pool } = require("pg");
+require("dotenv").config();
 
 //****connect database using node-postgress****//
 const pool = new Pool({
-  user: "labber",
-  password: "labber",
-  host: "localhost",
-  database: "midterm"
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  ssl: process.env.DB_SSL,
+  port: process.env.DB_PORT
 });
 
 /**
