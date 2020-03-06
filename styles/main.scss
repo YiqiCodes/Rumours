@@ -43,7 +43,7 @@
   float: right;
   bottom: 5rem;
   right: 3%;
-  color: rgb(0, 0, 0);
+  color: rgb(231, 228, 228);
   font-weight: 700;
   text-align: center;
   padding: 5px;
@@ -186,6 +186,7 @@ main {
   text-decoration-line: underline;
   margin-top: 6%;
 }
+
 .underline {
   text-decoration: underline;
 }
@@ -229,21 +230,26 @@ main {
   .menuheader {
     font-size: 2rem;
   }
+
   .dishsubheader {
     font-size: 1.8rem;
   }
+
   .dish-item {
     padding: 2%;
     margin: 8%;
     min-height: 0;
   }
+
   .dish-item-picture {
     height: 52%;
     width: 67%;
   }
+
   .dish-items {
     width: 75%;
   }
+
   .typestarters,
   .typemains,
   .typedesserts,
@@ -252,19 +258,23 @@ main {
     column-gap: 10%;
     width: 65%;
   }
+
   .dish-title,
   .dish-price,
   .dish-purchase {
     font-size: 1rem;
   }
+
   .order-summary {
     width: 42%;
     bottom: 6rem;
     font-size: 0.8rem;
   }
+
   .order-detail {
     font-size: 0.8rem;
   }
+
   .ordered-detail {
     font-size: 0.5rem;
   }

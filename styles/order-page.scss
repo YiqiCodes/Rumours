@@ -11,7 +11,7 @@ body {
 }
 
 .google-maps {
-  margin-left: 5%;
+  margin: 0% auto;
 }
 
 #msg {
@@ -128,21 +128,26 @@ main {
     font-size: 2rem;
     width: 100%;
   }
+
   h3,
   #mode {
     font-size: 1.2rem;
   }
+
   .order-summary {
     width: 100%;
     margin: 5%;
     font-size: 1rem;
   }
+
   main {
     flex-wrap: wrap;
   }
+
   #map {
     margin: 5% auto;
     height: 45vh;
     width: 50vh;
   }
+
 }
