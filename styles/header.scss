@@ -32,8 +32,8 @@ header {
   z-index: 1;
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 600px) {
   .video-container {
-    height: 0vh;
+    margin-top: 13%;
   }
 }

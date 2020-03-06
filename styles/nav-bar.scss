@@ -23,9 +23,12 @@ nav {
   border-color: rgb(223, 183, 168);
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 600px) {
   .navbar-brand,
   .nav-link {
     font-size: 1.2rem;
+  }
+  .fixed-top {
+    background-color: black;
   }
 }
