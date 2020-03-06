@@ -39,9 +39,6 @@ nav {
   .fixed-top {
     background-color: black;
   }
-}
-
-@supports (-webkit-touch-callout: none) {
   .order-line .user-picture .submit-order {
     max-height: 45px;
   }
