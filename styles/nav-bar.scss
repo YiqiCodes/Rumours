@@ -41,12 +41,8 @@ nav {
   }
 }
 
-// @media only screen and (max-width: 350px) {
-//   .navbar-dark .navbar-brand {
-//     font-size: 0.2rem;
-//   }
-
-//   .navbar-dark .navbar-toggler {
-//     font-size: 0.2rem;
-//   }
-// }
+@supports (-webkit-touch-callout: none) {
+  .order-line .user-picture .submit-order {
+    max-height: 45px;
+  }
+}
