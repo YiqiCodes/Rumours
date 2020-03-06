@@ -224,3 +224,48 @@ main {
   display: flex;
   justify-content: space-between;
 }
+
+@media only screen and (max-width: 425px) {
+  .menuheader {
+    font-size: 2rem;
+  }
+  .dishsubheader {
+    font-size: 1.8rem;
+  }
+  .dish-item {
+    padding: 2%;
+    margin: 8%;
+    min-height: 0vh;
+  }
+  .dish-item-picture {
+    height: 52%;
+    width: 67%;
+  }
+  .dish-items {
+    width: 75%;
+  }
+  .typestarters,
+  .typemains,
+  .typedesserts,
+  .typecocktails {
+    grid-template-columns: repeat(1, fr);
+    column-gap: 10%;
+    width: 65%;
+  }
+  .dish-title,
+  .dish-price,
+  .dish-purchase {
+    font-size: 1rem;
+  }
+  .order-summary {
+    width: 42%;
+    bottom: 6rem;
+    font-size: 0.8rem;
+  }
+  .order-detail {
+    font-size: 0.8rem;
+  }
+  .ordered-detail {
+    font-size: 0.5rem;
+  }
+}

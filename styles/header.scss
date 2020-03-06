@@ -31,3 +31,9 @@ header {
   font-family: "Merienda One", cursive;
   z-index: 1;
 }
+
+@media only screen and (max-width: 425px) {
+  .video-container {
+    height: 0vh;
+  }
+}

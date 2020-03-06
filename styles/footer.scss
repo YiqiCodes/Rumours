@@ -6,3 +6,10 @@
   color: rgb(255, 255, 255);
   position: sticky;
 }
+
+@media only screen and (max-width: 425px) {
+  .fixed-footer {
+    font-size: 0.8rem;
+    width: 100%;
+  }
+}

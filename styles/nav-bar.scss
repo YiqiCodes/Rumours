@@ -22,3 +22,10 @@ nav {
 .navbar-dark .navbar-toggler {
   border-color: rgb(223, 183, 168);
 }
+
+@media only screen and (max-width: 425px) {
+  .navbar-brand,
+  .nav-link {
+    font-size: 1.2rem;
+  }
+}
