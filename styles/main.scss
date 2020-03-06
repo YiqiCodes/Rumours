@@ -235,7 +235,7 @@ main {
   .dish-item {
     padding: 2%;
     margin: 8%;
-    min-height: 0vh;
+    min-height: 0;
   }
   .dish-item-picture {
     height: 52%;
@@ -248,7 +248,7 @@ main {
   .typemains,
   .typedesserts,
   .typecocktails {
-    grid-template-columns: repeat(1, fr);
+    grid-template-columns: repeat(1, 1fr);
     column-gap: 10%;
     width: 65%;
   }
