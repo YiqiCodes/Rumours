@@ -25,7 +25,7 @@ nav {
 
 @media only screen and (max-width: 600px) {
   .navbar-dark .navbar-brand {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .navbar-dark .navbar-toggler {
@@ -41,12 +41,12 @@ nav {
   }
 }
 
-@media only screen and (max-width: 350px) {
-  .navbar-dark .navbar-brand {
-    font-size: 0.7rem;
-  }
+// @media only screen and (max-width: 350px) {
+//   .navbar-dark .navbar-brand {
+//     font-size: 0.2rem;
+//   }
 
-  .navbar-dark .navbar-toggler {
-    font-size: 0.7rem;
-  }
-}
+//   .navbar-dark .navbar-toggler {
+//     font-size: 0.2rem;
+//   }
+// }
