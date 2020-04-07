@@ -4,7 +4,7 @@ A restaurant application that allows the customer to select items from a menu an
 
 An order summary will then display on the app and a map will render showing the directions from the customer's address to Rumours.
 
-1. Visit `https://rumours.herokuapp.com/`
+Please Visit https://rumours.herokuapp.com/
 
 ## Screenshots
 
