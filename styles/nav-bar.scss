@@ -1,8 +1,7 @@
 .navbar-dark .navbar-brand {
-  color: rgb(255, 255, 255);
+  color: rgb(223, 183, 168);
   font-family: "Raleway", sans-serif;
   font-size: 2rem;
-
   font-weight: 100;
 }
 
@@ -22,4 +21,25 @@ nav {
 
 .navbar-dark .navbar-toggler {
   border-color: rgb(223, 183, 168);
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar-dark .navbar-brand {
+    font-size: 1rem;
+  }
+
+  .navbar-dark .navbar-toggler {
+    font-size: 1rem;
+  }
+
+  .nav-item .nav-link {
+    font-size: 0.8rem;
+  }
+
+  .fixed-top {
+    background-color: black;
+  }
+  .order-line {
+    max-height: 45px;
+  }
 }

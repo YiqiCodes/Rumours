@@ -39,7 +39,8 @@ function initMap() {
         if (document.getElementById("msg") != null) {
           document.getElementById(
             "msg"
-          ).innerHTML = `Your order will be ready in 20 minutes. <br> If you leave now, it will take ~ ${directionsData.duration.text}.`;
+          ).innerHTML = `Your order will be ready in 20 minutes. <br>
+           It will take ~ ${directionsData.duration.text} (${directionsData.distance.text}) to reach Rumours.`;
         }
       }
     }

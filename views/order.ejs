@@ -3,6 +3,7 @@
 
 <head>
   <title>Your order summary</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link type="text/css" rel="stylesheet" href="/styles/order-page.css">
   <link href="https://fonts.googleapis.com/css?family=Merienda+One|Raleway:400,700,900&display=swap" rel="stylesheet" />
   <script type="text/javascript" src="/scripts/map.js"></script>
@@ -10,7 +11,7 @@
 </head>
 
 <body>
-  <h1> Your order has been placed! See you soon </h1>
+  <h1> Your order has been placed - see you soon Stevie! </h1>
 
   <main>
     <div class="google-maps">
@@ -46,19 +47,27 @@
       <div class="sub-total order-detail">
         <p>Sub-Total</p>
         <p></p>
-        <p id="sub-total-price" class="price">$<%= Number((total[0].sum)) %></p>
+        <p id="sub-total-price" class="price underline">$<%= Number((total[0].sum)) %></p>
       </div>
-      <div class="order-detail">
-        <p>Tax</p>
+      <div class="order-detail tax-price">
+        <p>Tax (13%)</p>
         <p></p>
-        <p id="tax-price" class="price">$<%= (Number(total[0].sum)* 0.13).toFixed(2) %></p>
+        <p id="tax-price" class="price underline">$<%= (Number(total[0].sum)* 0.13).toFixed(2) %></p>
       </div>
       <div class="total order-detail">
         <p>Total</p>
         <p></p>
-        <p id="total-price" class="price">$<%= (Number(total[0].sum)* 1.13).toFixed(2) %></p>
-      </div>
+        <p id="total-price" class="price underline total">$<%= (Number(total[0].sum)* 1.13).toFixed(2) %></p>
 
+      </div>
+      <div class="order-detail">
+
+            <div class="user-support">
+            <img class="user-picture" src="<%- '/assets/support.png' %>" />
+            <p>Need Help? Give us a call - +1 007 1337!</p>
+            </div>
+
+      </div>
   </main>
 
   <script>initMap()</script>

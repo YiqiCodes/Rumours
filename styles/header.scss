@@ -1,6 +1,5 @@
 body {
-  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(240, 240, 240);
   // background-blend-mode: overlay;
   font-family: "Raleway", sans-serif;
 }
@@ -30,4 +29,15 @@ header {
   left: 25%;
   font-family: "Merienda One", cursive;
   z-index: 1;
+}
+
+@media only screen and (max-width: 600px) {
+  .video-container {
+    margin-top: 12%;
+    height: 33vh;
+  }
+
+  header {
+    height: 33vh;
+  }
 }

@@ -1,0 +1,15 @@
+.fixed-footer {
+  bottom: 0;
+  padding: 2%;
+  text-align: right;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  position: sticky;
+}
+
+@media only screen and (max-width: 600px) {
+  .fixed-footer {
+    font-size: 0.6rem;
+    width: 100%;
+  }
+}
