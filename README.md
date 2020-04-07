@@ -1,4 +1,6 @@
-# LHL Node Skeleton
+# LHL -LighthouseEats
+
+1. Visit `https://rumours.herokuapp.com/`
 
 ## Project Set
 
